@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preetham Amin - Resume</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #111827;
+            --secondary: #4b5563;
+            --light-border: #e5e7eb;
+            --accent: #2563eb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: var(--primary);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .resume-container {
+            width: 800px;
+            /* A4-ish width for web preview */
+            background: white;
+            padding: 60px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .summary {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            color: var(--secondary);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .item {
+            margin-bottom: 24px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .item-subtitle {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        .item-date {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .item-desc {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--secondary);
+        }
+
+        .item-desc ul {
+            margin: 8px 0 0 0;
+            padding-left: 20px;
+        }
+
+        .item-desc li {
+            margin-bottom: 6px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            font-size: 0.95rem;
+        }
+
+        .skill-category {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* Print formatting */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                width: 100%;
+                box-shadow: none;
+                padding: 0;
+                border-radius: 0;
+            }
+
+            @page {
+                margin: 20mm;
+            }
+
+            a {
+                color: var(--primary) !important;
+                text-decoration: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="resume-container">
+        <header style="display: flex; align-items: flex-start; gap: 32px; margin-bottom: 32px;">
+            <div style="flex: 1;">
+                <h1 style="margin-top: 0;">Preetham Amin</h1>
+                <div class="contact-info">
+                    <span>Kushalnagar, Karnataka</span>
+                    <span>•</span>
+                    <a href="mailto:hello@preethamamin.com">hello@preethamamin.com</a>
+                    <span>•</span>
+                    <span>+91 8296748983</span>
+                    <span>•</span>
+                    <a href="https://www.linkedin.com/in/preethamamin">linkedin.com/in/preethamamin</a>
+                    <span>•</span>
+                    <a href="https://github.com/preethamamin22">github.com/preethamamin22</a>
+                </div>
+                <p class="summary" style="margin-bottom: 0;">
+                    A self-motivated Product Designer blending user-centric design with AI-assisted software development
+                    (Vibe Coding) to rapidly ship functional digital products. Strong background in UI/UX architecture,
+                    cross-functional collaboration, and bridging technical delivery with business objectives. Proven
+                    track
+                    record of executing from zero-to-one for cutting-edge startups.
+                </p>
+            </div>
+            <img src="profile.jpg" alt="Preetham Amin"
+                style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--light-border); flex-shrink: 0; margin-top: 8px;">
+        </header>
+
+        <div class="section">
+            <h2>Professional Experience</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Sales and Marketing (Customer Advisor)</div>
+                    <div class="item-date">Jul 2025 – Present</div>
+                </div>
+                <div class="item-subtitle">Tata Motors (URS KAR TATA)</div>
+                <div class="item-desc">
+                    <ul>
+                        <li>Spearheading customer engagement strategies to drive sales conversions and improve
+                            full-cycle customer satisfaction.</li>
+                        <li>Analyzing sales cycles and aligning customer pain points with actionable market strategies
+                            to establish deeper product-market fit.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Research Analyst & Consultant</div>
+                    <div class="item-date">Oct 2024 – Oct 2025</div>
+                </div>
+                <div class="item-subtitle">The Blu Canton & Xentricx Technologies</div>
+                <div class="item-desc">
+                    <ul>
+                        <li>Bridged business goals with technology solutions, driving product strategy and establishing
+                            rapid prototyping workflows.</li>
+                        <li>Conducted in-depth market research to optimize operational strategies and digital
+                            transformation for organizational clients.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">UI/UX Designer</div>
+                    <div class="item-date">Oct 2023 – Apr 2025</div>
+                </div>
+                <div class="item-subtitle">Decentraclasses | Remote</div>
+                <div class="item-desc">
+                    <ul>
+                        <li>Designed intuitive, high-fidelity interfaces from concept to launch for Web3 and
+                            decentralized applications.</li>
+                        <li>Established comprehensive core design systems prioritizing UX scalability for fast-moving
+                            engineering environments.</li>
+                        <li>Enhanced conversion metrics and user retention through rigorous journey mapping and seamless
+                            user interface architecture.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Projects & Applications</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Daily Market Prices Tracker</div>
+                </div>
+                <div class="item-desc">
+                    A dynamic market tracking platform offering real-time commodity insights for coffee and pepper.
+                    Leveraged modern UI standards for clear data visualization.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">AI-Powered Legal Document Simplifier</div>
+                </div>
+                <div class="item-desc">
+                    Pioneered the interface for an AI-driven tool that simplifies dense legalese into accessible,
+                    actionable language using automated workflow pipelines.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div>
+                    <div class="skill-category">Design & Prototyping:</div>
+                    <div style="color: var(--secondary)">Figma, Framer, Webflow, Design Systems, Information
+                        Architecture, Wireframing.</div>
+                </div>
+                <div>
+                    <div class="skill-category">Development & Prompting:</div>
+                    <div style="color: var(--secondary)">Vibe Coding (AI-assisted dev), HTML/CSS/JS, Rapid Prototyping,
+                        Prompt Engineering.</div>
+                </div>
+                <div>
+                    <div class="skill-category">Strategy & Operations:</div>
+                    <div style="color: var(--secondary)">Market Research, UX Strategy, B2C Sales Funnels, Agile Project
+                        Management, Notion.</div>
+                </div>
+                <div>
+                    <div class="skill-category">Domains:</div>
+                    <div style="color: var(--secondary)">SaaS, Web3 Decentralized Platforms, E-commerce Integration,
+                        Data Visualization.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="margin-bottom: 0;">
+            <h2>Education</h2>
+            <div class="item" style="margin-bottom: 12px;">
+                <div class="item-header">
+                    <div class="item-title">Full Stack Web3 Development</div>
+                </div>
+                <div class="item-subtitle" style="font-weight: 400; color: var(--secondary);">DecentraClasses</div>
+            </div>
+            <div class="item" style="margin-bottom: 0;">
+                <div class="item-header">
+                    <div class="item-title">BCA in Computer Science</div>
+                    <div class="item-date">2018 – 2021</div>
+                </div>
+                <div class="item-subtitle" style="font-weight: 400; color: var(--secondary);">Mangalore University,
+                    Mangaluru</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
