@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preetham Amin | Product Designer & Developer</title>
+    <meta name="description"
+        content="Portfolio of Preetham Amin, Product Designer & Vibe Coder focused on building intuitive digital products for startups.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">Preetham Amin</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact" class="btn-primary">Get in Touch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-text">
+                <span class="badge">Available for new opportunities</span>
+                <h1>Designing & Building Products for Startups.</h1>
+                <p>Hi, I'm Preetham. I'm a Product Designer who blends user-centric design with <strong>vibe
+                        coding</strong> (AI-assisted development) to ship functional, beautiful software fast.</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-primary">View My Work</a>
+                    <a href="https://www.linkedin.com/in/preethamamin" target="_blank"
+                        class="btn-secondary">LinkedIn</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="https://avatars.githubusercontent.com/u/89664722?v=4" alt="Preetham Amin">
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Experience section -->
+        <section id="about" class="about section-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h2>My Journey</h2>
+                    <p>From UI/UX Design to full-cycle Product Development.</p>
+                </div>
+                <div class="about-grid">
+                    <div class="experience-card">
+                        <div class="exp-date">July 2025 – Present</div>
+                        <h3>Sales and Marketing @ Tata Motors</h3>
+                        <p>Currently exploring the business side of products to better understand customer needs, sales
+                            cycles, and market fit.</p>
+                    </div>
+                    <div class="experience-card">
+                        <div class="exp-date">Oct 2024 – Oct 2025</div>
+                        <h3>Analyst & Consultant @ The Blu Canton & Xentricx</h3>
+                        <p>Bridged business goals with technology solutions, driving product strategy, rapid
+                            prototyping, and market research.</p>
+                    </div>
+                    <div class="experience-card">
+                        <div class="exp-date">Oct 2023 – Apr 2025</div>
+                        <h3>UI/UX Designer @ Decentraclasses</h3>
+                        <p>Designed intuitive interfaces and established core design systems for Web3 and decentralized
+                            applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills container">
+            <div class="section-header">
+                <h2>What I Do</h2>
+                <p>The tools and strategies I use to deliver immense value.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="icon">🎨</div>
+                    <h3>Product & UI Design</h3>
+                    <p>Proficient in Figma and Framer. I rapidly map out user flows, wireframes, and scalable Design
+                        Systems.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="icon">⚡</div>
+                    <h3>Vibe Coding</h3>
+                    <p>Leveraging LLMs and AI context to rapidly build, iterate, and deploy functional frontend logic
+                        and components.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="icon">📈</div>
+                    <h3>Business Strategy</h3>
+                    <p>Aligning product features with business objectives, prioritizing metrics like conversion and user
+                        retention.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="projects section-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Recent Projects</h2>
+                    <p>Live applications directly synced from my GitHub.</p>
+                </div>
+                <div class="project-grid" id="github-projects">
+                    <!-- Injected via JS -->
+                    <p>Loading projects...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact container text-center">
+            <h2>Let's build something great.</h2>
+            <p>I'm continuously looking to collaborate with forward-thinking startup teams. Let's make an impact
+                together.</p>
+            <a href="mailto:hello@preethamamin.com" class="btn-primary btn-large"
+                style="padding: 16px 32px; font-size: 1.1rem;">Say Hello</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; <span id="year"></span> Preetham Amin. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/preethamamin22" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/preethamamin" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/preetham_poojary___/" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
