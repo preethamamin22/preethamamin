@@ -136,6 +136,65 @@
             margin-bottom: 4px;
         }
 
+        .resume-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .resume-header img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--light-border);
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 16px;
+            }
+
+            .resume-container {
+                width: 100%;
+                padding: 24px;
+            }
+
+            .resume-header {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .resume-header img {
+                margin-top: 0;
+            }
+
+            .contact-info {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+        }
+
         .back-to-portfolio {
             display: inline-flex;
             align-items: center;
@@ -186,8 +245,8 @@
 
     <div class="resume-container">
         <a href="index.html" class="back-to-portfolio">&larr; Back to Portfolio</a>
-        <header style="display: flex; align-items: flex-start; gap: 32px; margin-bottom: 32px;">
-            <div style="flex: 1;">
+        <header class="resume-header">
+            <div class="header-info">
                 <h1 style="margin-top: 0;">Preetham Amin</h1>
                 <div class="contact-info">
                     <span>Bengaluru</span>
@@ -208,8 +267,7 @@
                     record of executing from zero-to-one for cutting-edge startups.
                 </p>
             </div>
-            <img src="profile.jpg" alt="Preetham Amin"
-                style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--light-border); flex-shrink: 0; margin-top: 8px;">
+            <img src="profile.jpg" alt="Preetham Amin">
         </header>
 
         <div class="section">
