@@ -136,8 +136,28 @@
             margin-bottom: 4px;
         }
 
+        .back-to-portfolio {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-to-portfolio:hover {
+            color: var(--accent);
+        }
+
         /* Print formatting */
         @media print {
+            .back-to-portfolio {
+                display: none !important;
+            }
+
             body {
                 background: white;
                 padding: 0;
@@ -165,6 +185,7 @@
 <body>
 
     <div class="resume-container">
+        <a href="index.html" class="back-to-portfolio">&larr; Back to Portfolio</a>
         <header style="display: flex; align-items: flex-start; gap: 32px; margin-bottom: 32px;">
             <div style="flex: 1;">
                 <h1 style="margin-top: 0;">Preetham Amin</h1>
