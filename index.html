@@ -4,23 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preetham Amin | Product Designer & Developer</title>
+    <title>Preetham Amin | Product Designer & Vibe Coder</title>
     <meta name="description"
-        content="Portfolio of Preetham Amin, Product Designer & Vibe Coder focused on building intuitive digital products for startups.">
+        content="Portfolio of Preetham Amin — Product Designer & Vibe Coder building intuitive digital products for startups. Available for new opportunities.">
+    <meta name="keywords" content="Product Designer, UI/UX, Vibe Coder, Figma, Framer, Startup, Portfolio">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Preetham Amin | Product Designer & Vibe Coder">
+    <meta property="og:description" content="Building intuitive digital products for startups with design + AI-assisted development.">
+    <meta property="og:type" content="website">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav class="navbar">
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
         <div class="container nav-content">
             <a href="#" class="logo">Preetham Amin</a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobile-menu-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -28,107 +35,179 @@
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </button>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="resume.html" target="_blank">Resume</a></li>
-                <li><a href="#contact" class="btn-primary">Get in Touch</a></li>
+                <li><a href="resume.html" target="_blank" id="nav-resume-link">Resume</a></li>
+                <li><a href="#contact" class="btn-primary"><span>Get in Touch</span></a></li>
             </ul>
         </div>
     </nav>
 
     <main>
-        <!-- Hero Section -->
+        <!-- HERO -->
         <section class="hero container">
             <div class="hero-text">
                 <span class="badge">Available for new opportunities</span>
-                <h1>Designing & Building Products for Startups.</h1>
-                <p>Hi, I'm Preetham. I'm a Product Designer who blends user-centric design with <strong>vibe
-                        coding</strong> (AI-assisted development) to ship functional, beautiful software fast.</p>
+
+                <h1 class="hero-title">
+                    <span class="gradient-text">Designing &amp;<br>Building Products</span><br>
+                    <span class="typewriter-line" id="typewriter-text"></span><span class="typewriter-cursor"></span>
+                </h1>
+
+                <p>Hi, I'm Preetham — a Product Designer who blends user-centric design with <strong>vibe coding</strong> (AI-assisted development) to ship functional, beautiful software fast. I turn ideas into products that people actually love.</p>
+
+                <!-- Stats Bar -->
+                <div class="hero-stats reveal">
+                    <div class="stat-item">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Projects Shipped</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Companies</div>
+                    </div>
+                </div>
+
                 <div class="hero-actions">
-                    <a href="#projects" class="btn-primary">View My Work</a>
-                    <a href="resume.html" target="_blank" class="btn-secondary">View Resume</a>
-                    <a href="https://www.linkedin.com/in/preethamamin" target="_blank"
-                        class="btn-secondary">LinkedIn</a>
+                    <a href="#projects" class="btn-primary"><span>View My Work</span></a>
+                    <a href="resume.html" target="_blank" class="btn-secondary" id="hero-resume-link">Download Resume</a>
+                    <a href="https://www.linkedin.com/in/preethamamin" target="_blank" class="btn-secondary">LinkedIn ↗</a>
                 </div>
             </div>
+
             <div class="hero-image">
+                <div class="image-ring-2"></div>
+                <div class="image-ring"></div>
                 <div class="image-wrapper">
-                    <img src="profile.jpg" alt="Preetham Amin">
+                    <img src="profile.jpg" alt="Preetham Amin — Product Designer & Developer">
                 </div>
             </div>
         </section>
 
-        <!-- About & Experience section -->
+        <!-- ABOUT & EXPERIENCE -->
         <section id="about" class="about section-bg">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal">
+                    <div class="section-label">Experience</div>
                     <h2>My Journey</h2>
-                    <p>From UI/UX Design to full-cycle Product Development.</p>
+                    <p>From UI/UX Design to full-cycle Product Development — shipping across startups and enterprise.</p>
                 </div>
                 <div class="about-grid">
-                    <div class="experience-card">
+                    <div class="experience-card reveal reveal-delay-1">
                         <div class="exp-date">May 2026 – Present</div>
-                        <h3>Product Designer & Developer @ Outvox Solution</h3>
-                        <p>Leading frontend development and user experience design to build the corporate solution platform at <a href="https://outvoxsolution.com" target="_blank" style="text-decoration: underline; color: inherit;">outvoxsolution.com</a>.</p>
+                        <span class="exp-company-badge">Outvox Solution</span>
+                        <h3>Product Designer &amp; Developer</h3>
+                        <p>Leading frontend development and UX design for the corporate platform at <a href="https://outvoxsolution.com" target="_blank" style="color: var(--accent-light); text-decoration: underline;">outvoxsolution.com</a>. Architecting responsive interfaces and component systems from scratch.</p>
+                        <div class="exp-achievement">✦ Built and launched the full platform frontend</div>
                     </div>
-                    <div class="experience-card">
+                    <div class="experience-card reveal reveal-delay-2">
                         <div class="exp-date">July 2025 – August 2026</div>
-                        <h3>Sales and Marketing @ Tata Motors</h3>
-                        <p>Currently exploring the business side of products to better understand customer needs, sales
-                            cycles, and market fit.</p>
+                        <span class="exp-company-badge">Tata Motors</span>
+                        <h3>Sales &amp; Marketing — Customer Advisor</h3>
+                        <p>Bridging product design thinking with real-world customer feedback loops. Analyzing sales cycles and aligning customer pain points to drive product-market fit insights.</p>
+                        <div class="exp-achievement">✦ Developed deep understanding of B2C user psychology</div>
                     </div>
-                    <div class="experience-card">
+                    <div class="experience-card reveal reveal-delay-3">
                         <div class="exp-date">Oct 2024 – Oct 2025</div>
-                        <h3>Analyst & Consultant @ The Blu Canton & Xentricx</h3>
-                        <p>Bridged business goals with technology solutions, driving product strategy, rapid
-                            prototyping, and market research.</p>
+                        <span class="exp-company-badge">The Blu Canton &amp; Xentricx</span>
+                        <h3>Research Analyst &amp; Consultant</h3>
+                        <p>Bridged business goals with technology solutions, driving product strategy, rapid prototyping, and market research for organizational clients across multiple verticals.</p>
+                        <div class="exp-achievement">✦ Drove product strategy across 3+ client engagements</div>
                     </div>
-                    <div class="experience-card">
+                    <div class="experience-card reveal reveal-delay-4">
                         <div class="exp-date">Oct 2023 – Apr 2025</div>
-                        <h3>UI/UX Designer @ Decentraclasses</h3>
-                        <p>Designed intuitive interfaces and established core design systems for Web3 and decentralized
-                            applications.</p>
+                        <span class="exp-company-badge">Decentraclasses</span>
+                        <h3>UI/UX Designer</h3>
+                        <p>Designed intuitive interfaces and established core design systems for Web3 and decentralized applications. Led end-to-end design from wireframes to high-fidelity delivery.</p>
+                        <div class="exp-achievement">✦ Improved user retention through journey mapping</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- SKILLS -->
         <section id="skills" class="skills container">
-            <div class="section-header">
-                <h2>What I Do</h2>
-                <p>The tools and strategies I use to deliver immense value.</p>
+            <div class="section-header reveal">
+                <div class="section-label">What I Bring</div>
+                <h2>Skills &amp; Tools</h2>
+                <p>The full toolkit I use to design, build, and ship products that make an impact.</p>
             </div>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <div class="icon">🎨</div>
-                    <h3>Product & UI Design</h3>
-                    <p>Proficient in Figma and Framer. I rapidly map out user flows, wireframes, and scalable Design
-                        Systems.</p>
+            <div class="skills-categories">
+                <div class="skill-category-block reveal reveal-delay-1">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">🎨</div>
+                        <div>
+                            <h3>Product &amp; UI Design</h3>
+                            <p>Design tools, systems, and methodologies</p>
+                        </div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><span class="tag-dot"></span>Figma</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Framer</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Webflow</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Design Systems</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Information Architecture</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Wireframing</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Prototyping</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>User Journey Mapping</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>A/B Testing</span>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <div class="icon">⚡</div>
-                    <h3>Vibe Coding</h3>
-                    <p>Leveraging LLMs and AI context to rapidly build, iterate, and deploy functional frontend logic
-                        and components.</p>
+
+                <div class="skill-category-block reveal reveal-delay-2">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">⚡</div>
+                        <div>
+                            <h3>Vibe Coding &amp; Development</h3>
+                            <p>AI-assisted development and frontend engineering</p>
+                        </div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><span class="tag-dot"></span>HTML / CSS / JS</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>React (basics)</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Prompt Engineering</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Cursor / Windsurf</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>GitHub Copilot</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Rapid Prototyping</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Vite / Next.js</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Git &amp; GitHub</span>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <div class="icon">📈</div>
-                    <h3>Business Strategy</h3>
-                    <p>Aligning product features with business objectives, prioritizing metrics like conversion and user
-                        retention.</p>
+
+                <div class="skill-category-block reveal reveal-delay-3">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">📈</div>
+                        <div>
+                            <h3>Business &amp; Strategy</h3>
+                            <p>Product thinking and go-to-market frameworks</p>
+                        </div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><span class="tag-dot"></span>Market Research</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>UX Strategy</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>B2C Sales Funnels</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Agile / Scrum</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Notion</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Product Roadmapping</span>
+                        <span class="skill-tag"><span class="tag-dot"></span>Stakeholder Comms</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects -->
+        <!-- PROJECTS -->
         <section id="projects" class="projects section-bg">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal">
+                    <div class="section-label">Work</div>
                     <h2>Recent Projects</h2>
-                    <p>Live applications directly synced from my GitHub.</p>
+                    <p>Live applications and experiments, synced directly from my GitHub.</p>
                 </div>
                 <div class="projects-controls">
                     <div class="search-wrapper">
@@ -141,25 +220,46 @@
                 </div>
 
                 <div class="project-grid" id="github-projects">
-                    <!-- Injected via JS -->
                     <p>Loading projects...</p>
                 </div>
             </div>
         </section>
 
-        <!-- Contact -->
-        <section id="contact" class="contact container text-center">
-            <h2>Let's build something great.</h2>
-            <p>I'm continuously looking to collaborate with forward-thinking startup teams. Let's make an impact
-                together.</p>
-            <a href="mailto:preethambr1@gmail.com" class="btn-primary btn-large"
-                style="padding: 16px 32px; font-size: 1.1rem;">Say Hello</a>
+        <!-- CONTACT -->
+        <section id="contact" class="contact">
+            <div class="contact-inner">
+                <div class="section-label reveal">Let's Connect</div>
+                <h2 class="reveal gradient-text">Ready to build something great?</h2>
+                <p class="reveal">I'm actively looking to collaborate with forward-thinking startup teams. If you have an idea, a problem, or a role — I'd love to hear from you.</p>
+
+                <div class="contact-actions reveal">
+                    <a href="mailto:preethambr1@gmail.com" class="btn-primary" id="contact-email-btn">
+                        <span>✉ Say Hello</span>
+                    </a>
+                    <a href="resume.html" target="_blank" class="btn-secondary" id="contact-resume-btn">Download Resume</a>
+                </div>
+
+                <div class="contact-direct reveal">
+                    <a href="mailto:preethambr1@gmail.com" class="contact-direct-item">
+                        <span class="icon">✉</span>
+                        preethambr1@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/preethamamin" target="_blank" class="contact-direct-item">
+                        <span class="icon">in</span>
+                        linkedin.com/in/preethamamin
+                    </a>
+                    <a href="https://github.com/preethamamin22" target="_blank" class="contact-direct-item">
+                        <span class="icon">⌥</span>
+                        github.com/preethamamin22
+                    </a>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="container footer-content">
-            <p>&copy; <span id="year"></span> Preetham Amin. All rights reserved.</p>
+            <p>© <span id="year"></span> Preetham Amin. Designed &amp; built with ♥</p>
             <div class="social-links">
                 <a href="https://github.com/preethamamin22" target="_blank">GitHub</a>
                 <a href="https://www.linkedin.com/in/preethamamin" target="_blank">LinkedIn</a>

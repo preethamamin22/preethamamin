@@ -1,5 +1,105 @@
+// =============================================
+// INIT
+// =============================================
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// =============================================
+// NAVBAR — scroll class
+// =============================================
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+}, { passive: true });
+
+// =============================================
+// MOBILE MENU
+// =============================================
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('nav-links');
+
+if (mobileBtn && navLinks) {
+    mobileBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+}
+
+// =============================================
+// TYPEWRITER EFFECT
+// =============================================
+const roles = [
+    'for Startups.',
+    'as a Product Designer.',
+    'as a UI/UX Expert.',
+    'as a Vibe Coder.',
+    'for the Future.',
+];
+
+const typewriterEl = document.getElementById('typewriter-text');
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typewriterTimeout;
+
+function type() {
+    const currentRole = roles[roleIndex];
+
+    if (isDeleting) {
+        typewriterEl.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typewriterEl.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    let speed = isDeleting ? 55 : 90;
+
+    if (!isDeleting && charIndex === currentRole.length) {
+        speed = 2200; // pause at end
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        speed = 400; // pause before typing next
+    }
+
+    typewriterTimeout = setTimeout(type, speed);
+}
+
+// Start typewriter after a brief delay for a polished feel
+setTimeout(type, 800);
+
+// =============================================
+// SCROLL REVEAL ANIMATIONS
+// =============================================
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target); // only animate once
+        }
+    });
+}, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// =============================================
+// GITHUB PROJECTS
+// =============================================
 const GITHUB_USERNAME = 'preethamamin22';
 const githubContainer = document.getElementById('github-projects');
 const searchInput = document.getElementById('project-search');
@@ -40,10 +140,23 @@ const CUSTOM_DESCRIPTIONS = {
     'legal-document-simplifier': 'An AI-powered legal text simplifier translating complex agreements into readable bullet points using automated language pipelines.',
     'outvox-solution': 'A corporate service landing page optimized for fast loading speeds, SEO headers, and user registration flows.',
     'outvoxsolution-hr': 'An HR administration dashboard facilitating employee attendance tracking, payroll overview, and team organization hierarchies.',
-    'shreevaraha': 'A regional e-commerce storefront for agricultural products, emphasizing local sourcing, pricing tables, and whatsapp order links.',
+    'shreevaraha': 'A regional e-commerce storefront for agricultural products, emphasizing local sourcing, pricing tables, and WhatsApp order links.',
     'sree-shoba-concretes': 'A professional business page for a building materials manufacturer, showcasing product categories, catalogs, and dynamic maps.',
     'zennuc-deco': 'A minimalist design system showcase for interior decorating, featuring smooth CSS animations and product catalogs.',
     'zepto-hiring': 'An interactive high-performance career application interface mockup built with pixel-perfect responsive layouts.'
+};
+
+// Language → accent color mapping for visual variety
+const LANG_COLORS = {
+    'JavaScript': '#f7df1e',
+    'TypeScript': '#3178c6',
+    'Python': '#3572A5',
+    'HTML': '#e34c26',
+    'CSS': '#563d7c',
+    'Vue': '#42b883',
+    'React': '#61dafb',
+    'Shell': '#89e051',
+    'Design': '#6366f1',
 };
 
 async function fetchGithubRepos() {
@@ -57,14 +170,12 @@ async function fetchGithubRepos() {
 
         let repos = await response.json();
 
-        // Ensure the specific project is always included at the top of our raw repos list
         if (specificResponse.ok) {
             const specificRepo = await specificResponse.json();
-            repos = repos.filter(r => r.id !== specificRepo.id); // Prevent duplicates
+            repos = repos.filter(r => r.id !== specificRepo.id);
             repos.unshift(specificRepo);
         }
 
-        // Filter out forks and excluded repositories, and store in global array
         allRepos = repos.filter(repo => {
             if (repo.fork) return false;
             const repoNameLower = repo.name.toLowerCase();
@@ -76,7 +187,6 @@ async function fetchGithubRepos() {
             return;
         }
 
-        // Render controls and initial filtered list
         generateFilterButtons();
         filterAndRenderRepos();
 
@@ -84,11 +194,11 @@ async function fetchGithubRepos() {
         console.error('GitHub fetch error:', error);
         githubContainer.innerHTML = `
             <div class="project-card">
-                <h3 class="project-title">View All Github Repos</h3>
+                <h3 class="project-title">View All GitHub Repos</h3>
                 <p class="project-desc">Check out all my work directly on GitHub.</p>
                 <div class="project-meta">
-                    <span>External Link</span>
-                    <a href="https://github.com/${GITHUB_USERNAME}" target="_blank" class="project-link">View GitHub &rarr;</a>
+                    <span class="project-lang-badge"><span class="project-lang-dot"></span>External</span>
+                    <a href="https://github.com/${GITHUB_USERNAME}" target="_blank" class="project-link">View GitHub →</a>
                 </div>
             </div>
         `;
@@ -97,19 +207,14 @@ async function fetchGithubRepos() {
 
 function generateFilterButtons() {
     if (!filterTagsContainer) return;
-    
-    // Get unique languages from non-fork repos
+
     const languages = new Set();
     allRepos.forEach(repo => {
-        if (repo.language) {
-            languages.add(repo.language);
-        }
+        if (repo.language) languages.add(repo.language);
     });
 
-    // Reset container with default "All" button
     filterTagsContainer.innerHTML = `<button class="filter-btn active" data-filter="all">All</button>`;
 
-    // Add buttons for each language
     languages.forEach(lang => {
         const btn = document.createElement('button');
         btn.className = 'filter-btn';
@@ -118,11 +223,9 @@ function generateFilterButtons() {
         filterTagsContainer.appendChild(btn);
     });
 
-    // Add click event listeners to filter buttons
-    const filterBtns = filterTagsContainer.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
+    filterTagsContainer.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            filterBtns.forEach(b => b.classList.remove('active'));
+            filterTagsContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
             activeFilter = e.target.getAttribute('data-filter');
             filterAndRenderRepos();
@@ -139,26 +242,24 @@ function filterAndRenderRepos() {
         const name = repo.name.toLowerCase();
         const description = (repo.description || '').toLowerCase();
         const language = (repo.language || 'design').toLowerCase();
-        
-        // Search query check
-        const matchesSearch = name.includes(searchQuery) || 
-                              description.includes(searchQuery) || 
-                              language.includes(searchQuery);
-        
-        // Category filter check
+
+        const matchesSearch = name.includes(searchQuery) ||
+            description.includes(searchQuery) ||
+            language.includes(searchQuery);
+
         const matchesFilter = activeFilter === 'all' || repo.language === activeFilter;
 
         return matchesSearch && matchesFilter;
     });
 
     if (filtered.length === 0) {
-        githubContainer.innerHTML = '<p class="text-center" style="grid-column: 1 / -1; padding: 40px 0; color: var(--text-secondary);">No projects match your criteria.</p>';
+        githubContainer.innerHTML = '<p class="text-center" style="grid-column: 1 / -1; padding: 60px 0; color: var(--text-secondary);">No projects match your criteria.</p>';
         return;
     }
 
-    filtered.forEach((repo) => {
+    filtered.forEach((repo, index) => {
         let projectUrl = repo.homepage;
-        if (!projectUrl || projectUrl === "") {
+        if (!projectUrl || projectUrl === '') {
             projectUrl = `https://${GITHUB_USERNAME}.github.io/${repo.name}`;
         }
 
@@ -167,11 +268,17 @@ function filterAndRenderRepos() {
             .replace(/\b\w/g, c => c.toUpperCase());
 
         const card = document.createElement('div');
-        card.className = 'project-card';
+        card.className = 'project-card reveal';
+        // Stagger reveal for project cards
+        const delayClass = `reveal-delay-${(index % 4) + 1}`;
+        card.classList.add(delayClass);
 
         const descKey = repo.name.toLowerCase();
         const customDesc = CUSTOM_DESCRIPTIONS[descKey];
         const descriptionText = customDesc || repo.description || 'A unique digital experience carefully crafted to solve real-world problems.';
+
+        const lang = repo.language || 'Design';
+        const langColor = LANG_COLORS[lang] || '#6366f1';
 
         card.innerHTML = `
             <div>
@@ -179,16 +286,22 @@ function filterAndRenderRepos() {
                 <p class="project-desc">${descriptionText}</p>
             </div>
             <div class="project-meta">
-                <span>${repo.language || 'Design'}</span>
-                <a href="${projectUrl}" target="_blank" class="project-link">View Project &rarr;</a>
+                <span class="project-lang-badge">
+                    <span class="project-lang-dot" style="background: ${langColor};"></span>
+                    ${lang}
+                </span>
+                <a href="${projectUrl}" target="_blank" class="project-link">View Project →</a>
             </div>
         `;
 
         githubContainer.appendChild(card);
+
+        // Observe newly added cards for reveal
+        revealObserver.observe(card);
     });
 }
 
-// Search input listener
+// Search listener
 if (searchInput) {
     searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.toLowerCase();
@@ -197,20 +310,3 @@ if (searchInput) {
 }
 
 fetchGithubRepos();
-
-// Mobile menu toggle
-const mobileBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-if (mobileBtn && navLinks) {
-    mobileBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    const links = navLinks.querySelectorAll('a');
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-    });
-}

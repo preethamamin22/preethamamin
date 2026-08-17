@@ -211,8 +211,51 @@
             color: var(--accent);
         }
 
+        .top-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 28px;
+        }
+
+        .btn-download-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-download-pdf:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-download-pdf:active {
+            transform: translateY(0);
+        }
+
+        .btn-download-pdf svg {
+            flex-shrink: 0;
+        }
+
         /* Print formatting */
         @media print {
+            .top-actions {
+                display: none !important;
+            }
+
             .back-to-portfolio {
                 display: none !important;
             }
@@ -244,7 +287,17 @@
 <body>
 
     <div class="resume-container">
-        <a href="index.html" class="back-to-portfolio">&larr; Back to Portfolio</a>
+        <div class="top-actions">
+            <a href="index.html" class="back-to-portfolio">&larr; Back to Portfolio</a>
+            <button class="btn-download-pdf" id="download-pdf-btn" onclick="downloadAsPDF()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Download PDF
+            </button>
+        </div>
         <header class="resume-header">
             <div class="header-info">
                 <h1 style="margin-top: 0;">Preetham Amin</h1>
@@ -407,6 +460,16 @@
         </div>
     </div>
 
+    <script>
+        function downloadAsPDF() {
+            // Set the document title so the browser uses it as the PDF filename
+            const originalTitle = document.title;
+            document.title = 'Preetham_Amin_Resume';
+            window.print();
+            // Restore the original title after the dialog closes
+            setTimeout(() => { document.title = originalTitle; }, 1000);
+        }
+    </script>
 </body>
 
 </html>
