@@ -1,18 +1,47 @@
 // =============================================
 // INIT
 // =============================================
-document.getElementById('year').textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+}
 
 // =============================================
-// NAVBAR — scroll class
+// NAVBAR — scroll class & active section spy
 // =============================================
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (navbar) {
+        if (window.scrollY > 40) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
+}, { passive: true });
+
+// Section Scroll-Spy for Nav Links
+const sections = document.querySelectorAll('section[id]');
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+    let currentSectionId = '';
+    const scrollPosition = window.scrollY + 120;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            currentSectionId = section.getAttribute('id');
+        }
+    });
+
+    navAnchors.forEach(anchor => {
+        anchor.classList.remove('active');
+        if (currentSectionId && anchor.getAttribute('href') === `#${currentSectionId}`) {
+            anchor.classList.add('active');
+        }
+    });
 }, { passive: true });
 
 // =============================================
@@ -23,12 +52,14 @@ const navLinks = document.getElementById('nav-links');
 
 if (mobileBtn && navLinks) {
     mobileBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        const isOpen = navLinks.classList.toggle('active');
+        mobileBtn.setAttribute('aria-expanded', isOpen);
     });
 
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
+            mobileBtn.setAttribute('aria-expanded', 'false');
         });
     });
 }
@@ -51,6 +82,7 @@ let isDeleting = false;
 let typewriterTimeout;
 
 function type() {
+    if (!typewriterEl) return;
     const currentRole = roles[roleIndex];
 
     if (isDeleting) {
@@ -75,8 +107,9 @@ function type() {
     typewriterTimeout = setTimeout(type, speed);
 }
 
-// Start typewriter after a brief delay for a polished feel
-setTimeout(type, 800);
+if (typewriterEl) {
+    setTimeout(type, 800);
+}
 
 // =============================================
 // SCROLL REVEAL ANIMATIONS
@@ -87,7 +120,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target); // only animate once
+            revealObserver.unobserve(entry.target);
         }
     });
 }, {
@@ -98,7 +131,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealElements.forEach(el => revealObserver.observe(el));
 
 // =============================================
-// GITHUB PROJECTS
+// GITHUB PROJECTS & FALLBACK DATA
 // =============================================
 const GITHUB_USERNAME = 'preethamamin22';
 const githubContainer = document.getElementById('github-projects');
@@ -146,7 +179,101 @@ const CUSTOM_DESCRIPTIONS = {
     'zepto-hiring': 'An interactive high-performance career application interface mockup built with pixel-perfect responsive layouts.'
 };
 
-// Language → accent color mapping for visual variety
+// Curated Fallback Projects list to guarantee project rendering even when GitHub API rate-limits
+const FALLBACK_PROJECTS = [
+    {
+        name: 'Daily-Market-Prices-Of-Coffee-And-Pepper',
+        language: 'TypeScript',
+        homepage: 'https://daily-market-prices-of-coffee-and-p.vercel.app',
+        html_url: 'https://github.com/preethamamin22/Daily-Market-Prices-Of-Coffee-And-Pepper',
+        description: CUSTOM_DESCRIPTIONS['daily-market-prices-of-coffee-and-pepper']
+    },
+    {
+        name: 'LEGAL-DOCUMENT-SIMPLIFIER',
+        language: 'JavaScript',
+        homepage: 'https://legal-document-simplifier-gilt.vercel.app',
+        html_url: 'https://github.com/preethamamin22/LEGAL-DOCUMENT-SIMPLIFIER',
+        description: CUSTOM_DESCRIPTIONS['legal-document-simplifier']
+    },
+    {
+        name: 'Outvox-solution',
+        language: 'JavaScript',
+        homepage: 'https://outvox-solution.vercel.app',
+        html_url: 'https://github.com/preethamamin22/Outvox-solution',
+        description: CUSTOM_DESCRIPTIONS['outvox-solution']
+    },
+    {
+        name: 'outvoxsolution-hr',
+        language: 'JavaScript',
+        homepage: null,
+        html_url: 'https://github.com/preethamamin22/outvoxsolution-hr',
+        description: CUSTOM_DESCRIPTIONS['outvoxsolution-hr']
+    },
+    {
+        name: 'Ananyahomestay',
+        language: 'TypeScript',
+        homepage: 'https://ananyahomestay.vercel.app',
+        html_url: 'https://github.com/preethamamin22/Ananyahomestay',
+        description: CUSTOM_DESCRIPTIONS['ananyahomestay']
+    },
+    {
+        name: 'blockdevs',
+        language: 'HTML',
+        homepage: 'https://blockdevs-nine.vercel.app',
+        html_url: 'https://github.com/preethamamin22/blockdevs',
+        description: CUSTOM_DESCRIPTIONS['blockdevs']
+    },
+    {
+        name: 'Bluecohortmanagement',
+        language: 'HTML',
+        homepage: 'https://bluecohortmanagement.vercel.app',
+        html_url: 'https://github.com/preethamamin22/Bluecohortmanagement',
+        description: CUSTOM_DESCRIPTIONS['bluecohortmanagement']
+    },
+    {
+        name: 'Alankaram',
+        language: 'HTML',
+        homepage: 'https://alankaram.vercel.app',
+        html_url: 'https://github.com/preethamamin22/Alankaram',
+        description: CUSTOM_DESCRIPTIONS['alankaram']
+    },
+    {
+        name: 'shreevaraha',
+        language: 'HTML',
+        homepage: 'https://shreevaraha.vercel.app',
+        html_url: 'https://github.com/preethamamin22/shreevaraha',
+        description: CUSTOM_DESCRIPTIONS['shreevaraha']
+    },
+    {
+        name: 'SREE-SHOBA-CONCRETES',
+        language: 'TypeScript',
+        homepage: null,
+        html_url: 'https://github.com/preethamamin22/SREE-SHOBA-CONCRETES',
+        description: CUSTOM_DESCRIPTIONS['sree-shoba-concretes']
+    },
+    {
+        name: 'ZenNuc-Deco',
+        language: 'HTML',
+        homepage: 'https://zen-nuc-deco.vercel.app',
+        html_url: 'https://github.com/preethamamin22/ZenNuc-Deco',
+        description: CUSTOM_DESCRIPTIONS['zennuc-deco']
+    },
+    {
+        name: 'Zepto-Hiring',
+        language: 'CSS',
+        homepage: 'https://zepto-hiring.vercel.app',
+        html_url: 'https://github.com/preethamamin22/Zepto-Hiring',
+        description: CUSTOM_DESCRIPTIONS['zepto-hiring']
+    },
+    {
+        name: '-Code-Generator',
+        language: 'Python',
+        homepage: 'https://code-generator-tan.vercel.app',
+        html_url: 'https://github.com/preethamamin22/-Code-Generator',
+        description: CUSTOM_DESCRIPTIONS['-code-generator']
+    }
+];
+
 const LANG_COLORS = {
     'JavaScript': '#f7df1e',
     'TypeScript': '#3178c6',
@@ -159,18 +286,30 @@ const LANG_COLORS = {
     'Design': '#6366f1',
 };
 
+function formatUrl(url) {
+    if (!url) return null;
+    url = url.trim();
+    if (url === '' || url === 'null') return null;
+    if (!/^https?:\/\//i.test(url)) {
+        return 'https://' + url;
+    }
+    return url;
+}
+
 async function fetchGithubRepos() {
     try {
         const [response, specificResponse] = await Promise.all([
             fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`),
-            fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/Daily-Market-Prices-Of-Coffee-And-Pepper`)
+            fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/Daily-Market-Prices-Of-Coffee-And-Pepper`).catch(() => null)
         ]);
 
-        if (!response.ok) throw new Error('API limit or error');
+        if (!response.ok) {
+            throw new Error(`GitHub API HTTP ${response.status}`);
+        }
 
         let repos = await response.json();
 
-        if (specificResponse.ok) {
+        if (specificResponse && specificResponse.ok) {
             const specificRepo = await specificResponse.json();
             repos = repos.filter(r => r.id !== specificRepo.id);
             repos.unshift(specificRepo);
@@ -183,26 +322,16 @@ async function fetchGithubRepos() {
         });
 
         if (allRepos.length === 0) {
-            githubContainer.innerHTML = '<p>No public repositories found.</p>';
-            return;
+            allRepos = FALLBACK_PROJECTS;
         }
 
-        generateFilterButtons();
-        filterAndRenderRepos();
-
     } catch (error) {
-        console.error('GitHub fetch error:', error);
-        githubContainer.innerHTML = `
-            <div class="project-card">
-                <h3 class="project-title">View All GitHub Repos</h3>
-                <p class="project-desc">Check out all my work directly on GitHub.</p>
-                <div class="project-meta">
-                    <span class="project-lang-badge"><span class="project-lang-dot"></span>External</span>
-                    <a href="https://github.com/${GITHUB_USERNAME}" target="_blank" class="project-link">View GitHub →</a>
-                </div>
-            </div>
-        `;
+        console.warn('Using curated fallback projects due to GitHub API limit/error:', error.message);
+        allRepos = FALLBACK_PROJECTS;
     }
+
+    generateFilterButtons();
+    filterAndRenderRepos();
 }
 
 function generateFilterButtons() {
@@ -210,7 +339,8 @@ function generateFilterButtons() {
 
     const languages = new Set();
     allRepos.forEach(repo => {
-        if (repo.language) languages.add(repo.language);
+        const lang = repo.language || 'Design';
+        if (lang) languages.add(lang);
     });
 
     filterTagsContainer.innerHTML = `<button class="filter-btn active" data-filter="all">All</button>`;
@@ -247,7 +377,7 @@ function filterAndRenderRepos() {
             description.includes(searchQuery) ||
             language.includes(searchQuery);
 
-        const matchesFilter = activeFilter === 'all' || repo.language === activeFilter;
+        const matchesFilter = activeFilter === 'all' || (repo.language || 'Design') === activeFilter;
 
         return matchesSearch && matchesFilter;
     });
@@ -258,20 +388,10 @@ function filterAndRenderRepos() {
     }
 
     filtered.forEach((repo, index) => {
-        let projectUrl = repo.homepage;
-        if (!projectUrl || projectUrl === '') {
-            projectUrl = `https://${GITHUB_USERNAME}.github.io/${repo.name}`;
-        }
-
         const displayName = repo.name
+            .replace(/^-/, '')
             .replace(/-/g, ' ')
             .replace(/\b\w/g, c => c.toUpperCase());
-
-        const card = document.createElement('div');
-        card.className = 'project-card reveal';
-        // Stagger reveal for project cards
-        const delayClass = `reveal-delay-${(index % 4) + 1}`;
-        card.classList.add(delayClass);
 
         const descKey = repo.name.toLowerCase();
         const customDesc = CUSTOM_DESCRIPTIONS[descKey];
@@ -279,6 +399,20 @@ function filterAndRenderRepos() {
 
         const lang = repo.language || 'Design';
         const langColor = LANG_COLORS[lang] || '#6366f1';
+
+        const demoUrl = formatUrl(repo.homepage);
+        const repoUrl = formatUrl(repo.html_url) || `https://github.com/${GITHUB_USERNAME}/${repo.name}`;
+
+        const card = document.createElement('div');
+        card.className = 'project-card reveal';
+        const delayClass = `reveal-delay-${(index % 4) + 1}`;
+        card.classList.add(delayClass);
+
+        let linksHtml = '';
+        if (demoUrl && demoUrl !== repoUrl) {
+            linksHtml += `<a href="${demoUrl}" target="_blank" class="project-link demo-link">Live Demo ↗</a>`;
+        }
+        linksHtml += `<a href="${repoUrl}" target="_blank" class="project-link">Code ↗</a>`;
 
         card.innerHTML = `
             <div>
@@ -290,13 +424,13 @@ function filterAndRenderRepos() {
                     <span class="project-lang-dot" style="background: ${langColor};"></span>
                     ${lang}
                 </span>
-                <a href="${projectUrl}" target="_blank" class="project-link">View Project →</a>
+                <div class="project-links">
+                    ${linksHtml}
+                </div>
             </div>
         `;
 
         githubContainer.appendChild(card);
-
-        // Observe newly added cards for reveal
         revealObserver.observe(card);
     });
 }

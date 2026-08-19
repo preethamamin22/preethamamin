@@ -741,6 +741,9 @@ section {
     align-items: center;
     justify-content: space-between;
     font-size: 0.82rem;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: auto;
 }
 
 .project-lang-badge {
@@ -762,19 +765,45 @@ section {
     background: var(--accent-light);
 }
 
-.project-link {
-    color: var(--accent-light);
-    font-weight: 600;
-    font-size: 0.875rem;
+.project-links {
     display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.project-link {
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.82rem;
+    display: inline-flex;
     align-items: center;
     gap: 4px;
     transition: var(--transition);
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
 }
 
 .project-link:hover {
-    color: var(--accent-2);
-    gap: 8px;
+    color: var(--text-primary);
+    border-color: var(--border-bright);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.project-link.demo-link {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(167, 139, 250, 0.25));
+    border-color: rgba(99, 102, 241, 0.4);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
+}
+
+.project-link.demo-link:hover {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 0 16px var(--accent-glow);
+    transform: translateY(-1px);
 }
 
 /* Projects Controls */
