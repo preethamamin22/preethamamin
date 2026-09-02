@@ -678,6 +678,59 @@ html.light .moon-icon { display: block; }
     transform: scale(1.04);
 }
 
+/* Project Role Line */
+.project-role-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+
+.project-role-label {
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+}
+
+.project-role-val {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+/* Flagship Project Card */
+.project-card-flagship {
+    border-color: var(--accent);
+    border-width: 2px;
+}
+
+.project-card-flagship:hover {
+    border-color: var(--accent-hover);
+    box-shadow: 0 24px 60px var(--accent-glow);
+}
+
+.flagship-label {
+    color: #f59e0b !important;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: var(--radius-full);
+    padding: 4px 12px;
+    font-size: 0.75rem;
+}
+
+/* Project CTAs within card */
+.project-ctas {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+
+
 /* --------------------------------------------------------------------------
    10. Other Projects Grid
    -------------------------------------------------------------------------- */
@@ -1535,6 +1588,203 @@ footer {
     font-size: 0.88rem;
     color: var(--text-muted);
 }
+
+/* Flagship Case Study — New Sections */
+.cs-callout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 32px;
+}
+
+.cs-callout-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+}
+
+.cs-callout-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cs-owned-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cs-owned-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.owned-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.cs-workflow-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.cs-workflow-step {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-subtle);
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    width: 100%;
+}
+
+.cs-workflow-step.highlight {
+    border-color: var(--accent);
+    background-color: var(--accent-light);
+    color: var(--text-primary);
+}
+
+.cs-workflow-step.active {
+    background-color: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.cs-workflow-arrow {
+    font-size: 0.9rem;
+    color: var(--accent);
+    padding-left: 8px;
+    line-height: 1;
+}
+
+/* Figma-to-Product Flow (Flagship Section) */
+.figma-to-product-flow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 28px;
+}
+
+.ftp-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 24px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    flex: 1;
+    min-width: 120px;
+}
+
+.ftp-step-active {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.ftp-step-active .ftp-label,
+.ftp-step-active .ftp-sub {
+    color: #fff;
+}
+
+.ftp-icon {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.ftp-label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.ftp-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.ftp-arrow {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* Flagship Highlight Section */
+.cs-flagship-highlight {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    margin-bottom: 64px !important;
+}
+
+/* Back link style */
+.back-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+    color: var(--text-primary);
+}
+
+.accent-link {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.learnings-block p {
+    margin-bottom: 16px;
+}
+
+.learnings-block p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .cs-callout-split {
+        grid-template-columns: 1fr;
+    }
+    .figma-to-product-flow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .ftp-arrow {
+        transform: rotate(90deg);
+        align-self: center;
+    }
+    .ftp-step {
+        flex-direction: row;
+        text-align: left;
+        gap: 12px;
+    }
+    .cs-flagship-highlight {
+        padding: 24px 20px;
+    }
+}
+
+
 
 /* --------------------------------------------------------------------------
    18. Scroll Reveal Animation Utility Classes
