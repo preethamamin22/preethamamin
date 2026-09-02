@@ -9,8 +9,10 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts — preconnect for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=block" rel="stylesheet">
     <!-- html2pdf for true PDF download -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
@@ -461,10 +463,16 @@
     </div>
 
     <script>
-        function downloadAsPDF() {
+        async function downloadAsPDF() {
             const btn = document.querySelector('.btn-download-pdf');
             btn.textContent = 'Generating PDF...';
             btn.disabled = true;
+
+            // Wait for ALL fonts to finish loading (fixes missing letters bug)
+            await document.fonts.ready;
+
+            // Additional delay to ensure fonts are fully rasterised by the browser
+            await new Promise(resolve => setTimeout(resolve, 800));
 
             // Hide action bar during PDF capture
             const topActions = document.querySelector('.top-actions');
@@ -472,10 +480,17 @@
 
             const element = document.querySelector('.resume-container');
             const opt = {
-                margin:       [10, 10, 10, 10],
+                margin:       [8, 8, 8, 8],
                 filename:     'Preetham_BR_Resume.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
+                image:        { type: 'png' },           // PNG preserves all glyphs — no lossy compression
+                html2canvas:  {
+                    scale: 2,
+                    useCORS: true,
+                    letterRendering: true,
+                    logging: false,
+                    allowTaint: true,
+                    fontFace: true                       // Ensure canvas waits for font rendering
+                },
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
                 pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
             };
