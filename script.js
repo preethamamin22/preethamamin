@@ -14,8 +14,7 @@ function initTheme() {
     if (savedTheme) {
         htmlEl.className = savedTheme;
     } else {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        htmlEl.className = prefersDark ? 'dark' : 'light';
+        htmlEl.className = 'light';
     }
 }
 
