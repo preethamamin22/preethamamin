@@ -1066,6 +1066,22 @@ html.light .moon-icon { display: block; }
     margin-bottom: 12px;
 }
 
+.exp-bullets {
+    margin: 8px 0 14px 0;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.exp-bullets li {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+
+
 .exp-focus {
     display: flex;
     flex-wrap: wrap;
