@@ -11,6 +11,8 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- html2pdf for true PDF download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         :root {
             --primary: #09090b;
@@ -163,19 +165,7 @@
         }
 
         .resume-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 28px;
             margin-bottom: 24px;
-        }
-
-        .resume-header img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--light-border);
-            flex-shrink: 0;
         }
 
         .header-info {
@@ -254,7 +244,7 @@
 
         /* Print & ATS Export Optimization */
         @media print {
-            .top-actions, .back-to-portfolio, .resume-header img {
+            .top-actions {
                 display: none !important;
             }
             body {
@@ -331,7 +321,6 @@
                     Results-oriented Product Designer and Vibe Coder with hands-on experience taking digital products from user research, wireframing, and Figma design systems to AI-assisted frontend development (React, Next.js, HTML/CSS). Skilled at bridging UX design, business strategy, and rapid prototype shipping.
                 </p>
             </div>
-            <img src="profile.jpg" alt="Preetham B R">
         </header>
 
         <!-- Professional Experience -->
@@ -473,10 +462,29 @@
 
     <script>
         function downloadAsPDF() {
-            const originalTitle = document.title;
-            document.title = 'Preetham_BR_Resume';
-            window.print();
-            setTimeout(() => { document.title = originalTitle; }, 1000);
+            const btn = document.querySelector('.btn-download-pdf');
+            btn.textContent = 'Generating PDF...';
+            btn.disabled = true;
+
+            // Hide action bar during PDF capture
+            const topActions = document.querySelector('.top-actions');
+            topActions.style.display = 'none';
+
+            const element = document.querySelector('.resume-container');
+            const opt = {
+                margin:       [10, 10, 10, 10],
+                filename:     'Preetham_BR_Resume.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                topActions.style.display = '';
+                btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF`;
+                btn.disabled = false;
+            });
         }
 
         function downloadATSText() {
