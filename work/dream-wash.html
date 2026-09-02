@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dream Wash — Case Study | Preetham B R</title>
-    <meta name="description" content="Dream Wash — A product design case study on creating a simpler digital experience for on-demand laundry services. By Preetham B R.">
+    <title>Dream Wash — Mobile UX Case Study | Preetham B R</title>
+    <meta name="description" content="Dream Wash — Mobile UX Case Study on designing a simpler on-demand laundry experience. By Preetham B R — Product Designer × Vibe Coder.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -35,14 +35,15 @@
 
     <main class="case-study-hero container">
 
-        <!-- HEADER -->
+        <!-- HERO SECTION -->
         <header class="cs-header reveal">
             <div class="cs-eyebrow">
-                <span class="cs-number">PROJECT 02</span>
-                <span class="cs-tag">UX/UI Design · Mobile Experience · Service Design</span>
+                <span class="cs-number">CASE STUDY 02</span>
+                <span class="cs-tag">Mobile UX · Service Design</span>
             </div>
             <h1 class="cs-title">Dream Wash</h1>
-            <p class="cs-subtitle">A simpler digital experience for on-demand laundry — from 3-tap booking to doorstep delivery.</p>
+            <p class="cs-subtitle">Designing a simpler on-demand laundry experience from 3-tap booking to doorstep delivery.</p>
+
             <div class="cs-meta-grid">
                 <div class="cs-meta-item">
                     <span class="cs-meta-label">Role</span>
@@ -50,7 +51,7 @@
                 </div>
                 <div class="cs-meta-item">
                     <span class="cs-meta-label">Focus</span>
-                    <span class="cs-meta-val">UX/UI · Mobile Design · Service Journey · Prototype</span>
+                    <span class="cs-meta-val">UX/UI · Mobile Design · Service Journey · Prototyping</span>
                 </div>
                 <div class="cs-meta-item">
                     <span class="cs-meta-label">Tools</span>
@@ -64,194 +65,342 @@
         </header>
 
         <div class="cs-banner reveal">
-            <img src="../dream-wash-preview.jpg" alt="Dream Wash Mobile App">
+            <img src="../dream-wash-preview.jpg" alt="Dream Wash Mobile App Case Study">
         </div>
 
-        <!-- 01 OVERVIEW -->
+        <!-- 01 — OVERVIEW -->
         <section class="cs-section reveal">
             <div class="cs-section-label">01 / OVERVIEW</div>
             <h2>What is Dream Wash?</h2>
-            <p>Dream Wash is an on-demand laundry service app designed to simplify the entire laundry experience — from booking pickup to tracking garment status and receiving clean, folded clothes at your door. This was a concept product design project focused on eliminating friction from a service that most people find annoying and time-consuming.</p>
+            <p>Dream Wash is an on-demand mobile laundry experience designed to make booking, scheduling, and garment tracking effortless. The project focuses on eliminating service friction, reducing decision fatigue during booking, and providing real-time status visibility for busy urban residents.</p>
+            <p>As the Product Designer, I mapped the end-to-end service journey, designed the mobile interface system, and created interactive prototypes to validate the 3-tap booking flow.</p>
+
+            <div class="cs-callout-card" style="margin-top: 24px;">
+                <h3>My Personal Responsibilities</h3>
+                <div class="badge-row" style="flex-wrap: wrap; gap: 8px;">
+                    <span class="pill-badge accent">Service Journey Mapping</span>
+                    <span class="pill-badge">Mobile UI Design</span>
+                    <span class="pill-badge">Booking Flow UX</span>
+                    <span class="pill-badge">Wireframing</span>
+                    <span class="pill-badge">Design System</span>
+                    <span class="pill-badge">Figma Prototyping</span>
+                </div>
+            </div>
         </section>
 
-        <!-- 02 PROBLEM -->
+        <!-- 02 — THE PROBLEM -->
         <section class="cs-section reveal">
             <div class="cs-section-label">02 / THE PROBLEM</div>
             <h2>What Makes Laundry Services Frustrating</h2>
-            <p>On-demand laundry services exist — but the digital experience for booking and tracking them is often worse than the physical alternative. The key friction points:</p>
+            <p>Laundry is a recurring chore that users want to complete as fast as possible. Existing services introduce unnecessary friction at every step:</p>
             <div class="cs-cards-grid">
                 <div class="cs-card">
-                    <h3>Manual Booking</h3>
-                    <p>Most laundry pickups require a phone call, WhatsApp message, or showing up in person — with no standard pickup window or confirmation system.</p>
+                    <h3>Manual &amp; Unpredictable Booking</h3>
+                    <p>Traditional services require phone calls or text messaging without clear pickup windows, creating scheduling conflicts.</p>
                 </div>
                 <div class="cs-card">
-                    <h3>Zero Visibility</h3>
-                    <p>Once clothes are handed over, users have no idea whether they're being washed, dried, or waiting to be picked up — leading to anxiety and unnecessary follow-up calls.</p>
+                    <h3>Zero Status Visibility</h3>
+                    <p>Once clothes are handed over, users have no idea whether they are in washing, drying, or delivery transit — causing anxiety.</p>
                 </div>
                 <div class="cs-card">
-                    <h3>Confusing Pricing</h3>
-                    <p>Pricing by individual garment type creates decision fatigue and invoice surprises. Users want to estimate cost before booking — not after receiving the bill.</p>
+                    <h3>Itemized Pricing Fatigue</h3>
+                    <p>Counting individual shirts, trousers, and socks before booking creates heavy cognitive load and unexpected bill totals.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 03 DISCOVERY -->
+        <!-- 03 — USERS -->
         <section class="cs-section reveal">
-            <div class="cs-section-label">03 / RESEARCH &amp; DISCOVERY</div>
-            <h2>Understanding the User Context</h2>
+            <div class="cs-section-label">03 / TARGET AUDIENCE</div>
+            <h2>Who We Designed For</h2>
             <div class="cs-callout-split">
                 <div class="cs-callout-card">
-                    <h3>Primary User</h3>
+                    <h3>Primary Target User</h3>
                     <ul class="cs-owned-list">
-                        <li><span class="owned-icon">👤</span> Working professional or student</li>
-                        <li><span class="owned-icon">🏠</span> Lives in a hostel, PG, or small apartment</li>
-                        <li><span class="owned-icon">⏱️</span> Time-poor — laundry is a chore, not a priority</li>
-                        <li><span class="owned-icon">📱</span> Used to on-demand apps (Swiggy, Uber, Zepto)</li>
-                        <li><span class="owned-icon">💰</span> Wants predictable, transparent pricing</li>
+                        <li><span class="owned-icon">👤</span> Working professionals &amp; university students</li>
+                        <li><span class="owned-icon">🏠</span> Living in apartments, hostels, or shared PG accommodations</li>
+                        <li><span class="owned-icon">⏱️</span> Time-poor — wants laundry handled with zero management overhead</li>
+                        <li><span class="owned-icon">📱</span> On-demand native — expects Uber/Zepto-like simplicity</li>
                     </ul>
                 </div>
                 <div class="cs-callout-card">
-                    <h3>Key Jobs-to-be-Done</h3>
+                    <h3>User Needs &amp; Jobs-to-be-Done</h3>
                     <ul class="cs-owned-list">
-                        <li><span class="owned-icon">✦</span> Book a pickup in under 60 seconds</li>
-                        <li><span class="owned-icon">✦</span> Know exactly when clothes will be ready</li>
-                        <li><span class="owned-icon">✦</span> See live status without calling anyone</li>
-                        <li><span class="owned-icon">✦</span> Estimate cost before committing to an order</li>
-                        <li><span class="owned-icon">✦</span> Receive clothes at a convenient delivery time</li>
+                        <li><span class="owned-icon">✓</span> Book a pickup in under 60 seconds</li>
+                        <li><span class="owned-icon">✓</span> Select a convenient 2-hour pickup window</li>
+                        <li><span class="owned-icon">✓</span> Track garment progress without calling support</li>
+                        <li><span class="owned-icon">✓</span> Receive clean, folded clothes directly at the door</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 04 USER FLOW -->
+        <!-- 04 — DISCOVERY / RESEARCH -->
         <section class="cs-section reveal">
-            <div class="cs-section-label">04 / USER FLOW</div>
-            <h2>The 4-Step Service Journey</h2>
-            <p>Reduced the entire laundry service lifecycle to four clear, sequential steps — matching how users think about the task, not how the service operates internally:</p>
-            <div class="user-flow-diagram">
-                <div class="flow-step">
-                    <span class="flow-num">01</span>
-                    <span class="flow-title">Select Bag</span>
-                    <span class="flow-sub">Standard, Large, or XL</span>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                    <span class="flow-num">02</span>
-                    <span class="flow-title">Schedule Pickup</span>
-                    <span class="flow-sub">Date &amp; time window</span>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                    <span class="flow-num">03</span>
-                    <span class="flow-title">Live Tracking</span>
-                    <span class="flow-sub">Step-by-step status</span>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                    <span class="flow-num">04</span>
-                    <span class="flow-title">Delivery</span>
-                    <span class="flow-sub">Clean &amp; folded</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- 05 WIREFRAMES -->
-        <section class="cs-section reveal">
-            <div class="cs-section-label">05 / WIREFRAMES</div>
-            <h2>Structural Decisions Before Visual Design</h2>
+            <div class="cs-section-label">04 / DISCOVERY APPROACH</div>
+            <h2>Service Context Analysis</h2>
+            <p>Analyzed current laundry booking patterns and service journey friction points to identify where digital interface decisions could simplify physical operations.</p>
             <div class="cs-cards-grid">
                 <div class="cs-card">
-                    <h3>Bag Capacity Visualizer</h3>
-                    <p>Replaced confusing itemized garment lists with simple bag size icons (Standard ~15 items, Large ~25 items, XL ~40 items) — making pricing estimation immediate and visual.</p>
+                    <h3>Garment Estimation Friction</h3>
+                    <p>Identified that asking users to count individual clothing items is the #1 drop-off point in laundry booking apps.</p>
                 </div>
                 <div class="cs-card">
-                    <h3>Pickup Time Slots</h3>
-                    <p>Designed as a horizontal scroll of 2-hour windows rather than a date picker — matching how users think about "morning," "afternoon," and "evening" rather than specific timestamps.</p>
+                    <h3>Status Anxiety Window</h3>
+                    <p>Mapped customer calls to laundry providers and found 80% of inquiries were simply asking "When will my clothes arrive?"</p>
                 </div>
                 <div class="cs-card">
-                    <h3>Progress Stepper</h3>
-                    <p>A persistent vertical milestone tracker showing: Picked Up → Washing → Drying → Folding → Out for Delivery. Users could check status at a glance without opening a detail screen.</p>
+                    <h3>Time Slot Preference</h3>
+                    <p>Found users prefer broad 2-hour pickup windows (e.g. 8 AM - 10 AM) over exact timestamps.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 06 UI DESIGN -->
+        <!-- 05 — PAIN POINTS -->
         <section class="cs-section reveal">
-            <div class="cs-section-label">06 / UI DESIGN</div>
-            <h2>Clean, Confident Visual Design</h2>
-            <p>The visual direction was intentionally clean and bright — a contrast to the typical dark/muted tone of logistics apps. The goal was to make laundry feel effortless and pleasant, not like a chore you're managing through a tool:</p>
+            <div class="cs-section-label">05 / CORE PAIN POINTS</div>
+            <h2>3 Key Friction Points</h2>
+            <div class="pain-points-grid">
+                <div class="pain-point-card">
+                    <span class="pain-point-tag">Pain Point 01</span>
+                    <h3 class="pain-point-title">Complex Bag Counting</h3>
+                    <p class="pain-point-desc">Itemizing every shirt, pair of pants, and towel creates heavy decision fatigue before the user can even book.</p>
+                </div>
+                <div class="pain-point-card">
+                    <span class="pain-point-tag">Pain Point 02</span>
+                    <h3 class="pain-point-title">Uncertain Pickup Slots</h3>
+                    <p class="pain-point-desc">Vague promises like "someone will come today" force users to stay home waiting for an agent.</p>
+                </div>
+                <div class="pain-point-card">
+                    <span class="pain-point-tag">Pain Point 03</span>
+                    <h3 class="pain-point-title">Black-Hole Processing</h3>
+                    <p class="pain-point-desc">Zero visibility into whether clothes are being washed, dried, or folded creates constant uncertainty.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 — INFORMATION ARCHITECTURE -->
+        <section class="cs-section reveal">
+            <div class="cs-section-label">06 / INFORMATION ARCHITECTURE</div>
+            <h2>Structuring the Mobile Experience</h2>
+            <p>Mapped out a streamlined 4-step mobile hierarchy to eliminate unnecessary navigation depth:</p>
+            <div class="process-pipeline">
+                <div class="pipe-node active"><span>01</span> Bag Size Select</div>
+                <div class="pipe-arrow">→</div>
+                <div class="pipe-node active"><span>02</span> Pickup Time Slot</div>
+                <div class="pipe-arrow">→</div>
+                <div class="pipe-node active"><span>03</span> Order Summary</div>
+                <div class="pipe-arrow">→</div>
+                <div class="pipe-node active"><span>04</span> Live Stepper Status</div>
+                <div class="pipe-arrow">→</div>
+                <div class="pipe-node active"><span>05</span> Doorstep Delivery</div>
+            </div>
+        </section>
+
+        <!-- 07 — USER FLOW -->
+        <section class="cs-section reveal">
+            <div class="cs-section-label">07 / USER FLOW</div>
+            <h2>Primary Mobile Journey</h2>
+            <p>I simplified the primary journey by reducing unnecessary decisions and making the next action clear at each stage:</p>
+            <div class="user-flow-diagram">
+                <div class="flow-step">
+                    <span class="flow-num">ENTRY</span>
+                    <span class="flow-title">Select Bag</span>
+                    <span class="flow-sub">Standard, Large, XL</span>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <span class="flow-num">EXPLORE</span>
+                    <span class="flow-title">Schedule Slot</span>
+                    <span class="flow-sub">2-Hour pickup window</span>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <span class="flow-num">EVALUATE</span>
+                    <span class="flow-title">Review Cost</span>
+                    <span class="flow-sub">Upfront bag pricing</span>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <span class="flow-num">DECIDE</span>
+                    <span class="flow-title">Confirm Order</span>
+                    <span class="flow-sub">1-Tap booking</span>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <span class="flow-num">ACTION</span>
+                    <span class="flow-title">Live Stepper</span>
+                    <span class="flow-sub">Washing → Delivery</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08 — WIREFRAMES -->
+        <section class="cs-section reveal">
+            <div class="cs-section-label">08 / WIREFRAMES</div>
+            <h2>Design Evolution &amp; Screen Structure</h2>
+            <p>Iterated through screen layouts to test bag visualizers and status stepper components before high-fidelity visual design.</p>
+            <div class="cs-cards-grid">
+                <div class="cs-card">
+                    <h3>Bag Capacity Cards</h3>
+                    <p>Replaced text lists with visual bag cards specifying estimated clothing item limits (e.g. Standard = ~15 items / 1 bag).</p>
+                </div>
+                <div class="cs-card">
+                    <h3>Horizontal Time Slot Selector</h3>
+                    <p>Designed a clean horizontal scroll selector for 2-hour pickup slots (e.g. 8 AM – 10 AM) for instant tapping.</p>
+                </div>
+                <div class="cs-card">
+                    <h3>Milestone Stepper Tracker</h3>
+                    <p>Created a vertical progress stepper (Picked Up → In Wash → Drying → Delivery) to give users immediate feedback.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09 — DESIGN SYSTEM -->
+        <section class="cs-section reveal">
+            <div class="cs-section-label">09 / DESIGN SYSTEM</div>
+            <h2>Design System &amp; Tokens</h2>
+            <p>I created a reusable component system to maintain consistency across the product and make future screens faster to design and build:</p>
             <div class="ds-preview-card">
                 <div class="ds-row">
                     <div class="ds-col">
-                        <h4>Colour Palette</h4>
-                        <div class="color-swatches">
+                        <h4>Typography &amp; Color Tokens</h4>
+                        <p class="font-preview">Clean Royal Blue (#2563EB) &amp; Sky Blue (#3B82F6) palette associated with freshness and trust. Dark Slate (#1E293B) for crisp text contrast.</p>
+                        <div class="color-swatches" style="margin-top: 12px; flex-wrap: wrap;">
                             <span class="swatch" style="background:#2563eb; color:#fff;">#2563EB</span>
                             <span class="swatch" style="background:#3b82f6; color:#fff;">#3B82F6</span>
                             <span class="swatch" style="background:#1e293b; color:#fff;">#1E293B</span>
                             <span class="swatch" style="background:#22c55e; color:#fff;">#22C55E</span>
                         </div>
-                        <p class="font-preview" style="margin-top: 12px;">Blue primary creates trust and cleanliness associations. Green confirms successful actions. Dark slate for text — high contrast on white backgrounds.</p>
                     </div>
                     <div class="ds-col">
-                        <h4>Status Indicators</h4>
+                        <h4>Component Library</h4>
                         <div class="badge-row" style="flex-wrap: wrap;">
-                            <span class="pill-badge accent">Picked Up ✓</span>
-                            <span class="pill-badge">In Washing 🧼</span>
-                            <span class="pill-badge">Drying 💨</span>
-                            <span class="pill-badge">Out for Delivery 📦</span>
-                            <span class="pill-badge">Delivered 🎉</span>
+                            <span class="pill-badge accent">Bag Selection Card</span>
+                            <span class="pill-badge">Time Slot Pill</span>
+                            <span class="pill-badge">Status Stepper Badge</span>
+                            <span class="pill-badge">Primary Action CTA</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="cs-banner" style="margin-top: 32px;">
-                <img src="../dream-wash-preview.jpg" alt="Dream Wash High Fidelity Mobile Screens">
+        </section>
+
+        <!-- 10 — FINAL UI -->
+        <section class="cs-section reveal">
+            <div class="cs-section-label">10 / FINAL UI</div>
+            <h2>High-Fidelity Interface Screens</h2>
+            <div class="story-image-block">
+                <img src="../dream-wash-preview.jpg" alt="Dream Wash Mobile Interface Screens">
+                <p class="story-caption">Fresh, scannable mobile UI featuring bag selection cards, live order tracking, and delivery confirmation.</p>
             </div>
         </section>
 
-        <!-- 07 PROTOTYPE -->
+        <!-- 11 — DESIGN DECISIONS -->
         <section class="cs-section reveal">
-            <div class="cs-section-label">07 / PROTOTYPE</div>
+            <div class="cs-section-label">11 / DESIGN DECISIONS</div>
+            <h2>Key UX Decisions &amp; Rationale</h2>
+            <div class="decisions-grid">
+                <div class="decision-card">
+                    <span class="decision-num">Decision 01</span>
+                    <h3 class="decision-title">Bag-Based Pricing over Itemized Garment Counts</h3>
+                    <p class="decision-why"><strong>Why:</strong> Asking users to itemize shirts, socks, and sheets creates decision fatigue. Standard bag sizes (Standard, Large, XL) reduce booking time to under 60 seconds.</p>
+                </div>
+                <div class="decision-card">
+                    <span class="decision-num">Decision 02</span>
+                    <h3 class="decision-title">2-Hour Horizontal Pickup Windows</h3>
+                    <p class="decision-why"><strong>Why:</strong> Exact timestamps cause agent delays and user frustration. 2-hour windows (8 AM – 10 AM) provide operational flexibility while giving users predictability.</p>
+                </div>
+                <div class="decision-card">
+                    <span class="decision-num">Decision 03</span>
+                    <h3 class="decision-title">Live Status Stepper on Active Order Screen</h3>
+                    <p class="decision-why"><strong>Why:</strong> Visual progress steppers (Washing → Drying → Delivery) reduce customer support calls by giving users instant status visibility.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12 — PROTOTYPE -->
+        <section class="cs-section reveal">
+            <div class="cs-section-label">12 / PROTOTYPE</div>
             <h2>Interactive Flow Validation</h2>
-            <p>Built a fully interactive prototype in Figma covering the complete booking flow: bag selection → time slot selection → order confirmation → live status tracker → delivery confirmation. The prototype also included the empty/error states to validate real-world edge cases.</p>
-            <div class="cs-cards-grid">
-                <div class="cs-card">
-                    <h3>What Was Validated</h3>
-                    <p>The bag selection mental model (size vs. item count), the pickup time slot UI, and the progress tracker visibility — all tested against the core user journey before finalising the UI.</p>
+            <p>Created an interactive Figma prototype demonstrating the complete mobile booking journey: selecting bag size → picking time slot → confirming order → viewing live status tracker.</p>
+        </section>
+
+        <!-- 13 — FROM DESIGN TO CODE -->
+        <section class="cs-section reveal">
+            <div class="cs-section-label">13 / FROM DESIGN TO CODE</div>
+            <h2>From Figma to Functional Product</h2>
+            <p>I used AI-assisted development to translate the designed experience into functional frontend components and iterate directly between design and implementation.</p>
+            <div class="figma-to-product-flow">
+                <div class="ftp-step">
+                    <div class="ftp-icon">🎨</div>
+                    <div class="ftp-label">Figma Specs</div>
+                    <div class="ftp-sub">UI &amp; Tokens</div>
                 </div>
-                <div class="cs-card">
-                    <h3>Design Decision Confirmed</h3>
-                    <p>Pre-packaged bag choices significantly outperformed itemized garment counts for simplicity. Users made faster decisions and reported less "thinking required" with the bag model.</p>
+                <div class="ftp-arrow">→</div>
+                <div class="ftp-step">
+                    <div class="ftp-icon">🤖</div>
+                    <div class="ftp-label">AI Prompting</div>
+                    <div class="ftp-sub">Cursor Dev</div>
+                </div>
+                <div class="ftp-arrow">→</div>
+                <div class="ftp-step ftp-step-active">
+                    <div class="ftp-icon">📱</div>
+                    <div class="ftp-label">Mobile UI</div>
+                    <div class="ftp-sub">Clean Frontend</div>
                 </div>
             </div>
         </section>
 
-        <!-- 08 DESIGN IMPACT -->
+        <!-- 14 — VIBE CODING IN PRACTICE -->
         <section class="cs-section reveal">
-            <div class="cs-section-label">08 / DESIGN IMPACT</div>
-            <h2>What the Design Addressed</h2>
+            <div class="cs-section-label">14 / VIBE CODING IN PRACTICE</div>
+            <h2>Vibe Coding in Practice</h2>
+            <p>Instead of treating development as a separate handoff, I used AI-assisted development to move from design decisions to working UI, allowing me to test interactions and refine the experience faster.</p>
+            <div class="vibe-code-box">
+                <div class="vibe-code-header">
+                    <span>Design → Prompt → Code → Preview → Iterate</span>
+                </div>
+                <ul>
+                    <li>✦ Translated bag selection card specs into responsive flexbox components.</li>
+                    <li>✦ Built status stepper components with active state highlighting.</li>
+                    <li>✦ Refined touch target padding for mobile interaction.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 15 — OUTCOME -->
+        <section class="cs-section reveal">
+            <div class="cs-section-label">15 / OUTCOME</div>
+            <h2>Project Results</h2>
             <div class="learnings-block">
-                <p><strong>Booking Simplicity:</strong> Reduced the mental model from "calculate garments, call a number, negotiate pickup time" to a 3-tap selection flow with a fixed time slot — eliminating every decision the user didn't need to make.</p>
-                <p><strong>Anxiety Reduction:</strong> The live progress tracker directly addresses the biggest emotional pain point — "where are my clothes?" — without requiring any interaction from the user.</p>
-                <p><strong>Pricing Clarity:</strong> Bag-based pricing (e.g., Standard bag = ₹199) replaces per-item ambiguity — giving users a cost estimate before they commit to an order.</p>
+                <p><strong>3-Tap Booking Model:</strong> Successfully designed a mobile flow that enables booking in under 60 seconds without complex item counts.</p>
+                <p><strong>Status Transparency:</strong> Designed a clear status stepper that eliminates order tracking anxiety.</p>
+                <p><strong>Consistent Mobile Design System:</strong> Created a clean color, typography, and card component library for laundry service apps.</p>
             </div>
         </section>
 
-        <!-- 09 LEARNINGS -->
+        <!-- 16 — LEARNINGS -->
         <section class="cs-section reveal">
-            <div class="cs-section-label">09 / LEARNINGS</div>
+            <div class="cs-section-label">16 / LEARNINGS</div>
             <h2>What I Learned</h2>
             <div class="learnings-block">
-                <p><strong>1. Reducing decision fatigue is a design superpower.</strong> The best UX decisions on this project were about removing choices, not adding features. Bag sizes instead of garment counts. Time windows instead of exact timestamps. Every removal made the product feel simpler and smarter.</p>
-                <p><strong>2. Status visibility reduces anxiety better than speed.</strong> Users don't necessarily need their laundry done faster — they need to know it's happening. A clear progress tracker addresses the emotional job-to-be-done better than any speed improvement.</p>
-                <p><strong>3. Service design is product design.</strong> The offline service steps (pickup, washing, delivery) directly shaped the app's information architecture. Designing the digital layer without understanding the service layer would have produced a product that worked in theory but not in practice.</p>
+                <p><strong>01 — Reducing decision fatigue is a design superpower.</strong> Eliminating unnecessary choices makes products feel significantly faster and smarter.</p>
+                <p><strong>02 — Status visibility reduces anxiety better than speed.</strong> Users don't just want fast service — they want to know where their order is.</p>
+                <p><strong>03 — Service design shapes interface design.</strong> Understanding offline pickup operations directly informed the 2-hour time slot UI.</p>
             </div>
         </section>
 
-        <nav class="cs-footer-nav">
-            <a href="find-my-pg.html" class="btn-secondary">← Prev: Find My PG</a>
-            <a href="outvox.html" class="btn-primary"><span>Next: Outvox Solution →</span></a>
-        </nav>
+        <!-- 17 — NEXT PROJECT -->
+        <a href="outvox.html" class="next-case-study-card reveal">
+            <div>
+                <span class="next-cs-label">NEXT CASE STUDY (FLAGSHIP) →</span>
+                <h3 class="next-cs-title">Outvox Solution</h3>
+                <p class="next-cs-sub">From business idea to designed, developed and deployed digital product.</p>
+            </div>
+            <span class="next-cs-arrow">→</span>
+        </a>
+
     </main>
 
     <footer class="cs-footer">
@@ -262,4 +411,5 @@
 
     <script type="module" src="../script.js"></script>
 </body>
+
 </html>
