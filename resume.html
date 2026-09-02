@@ -616,6 +616,14 @@ DecentraClasses
             link.click();
             URL.revokeObjectURL(link.href);
         }
+
+        // Automatically trigger PDF download if URL contains ?download=pdf or ?download=true
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('download') === 'pdf' || params.get('download') === 'true') {
+                downloadAsPDF();
+            }
+        });
     </script>
 </body>
 
