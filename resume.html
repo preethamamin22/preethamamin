@@ -4,58 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preetham Amin - Resume</title>
+    <title>Preetham B R — Resume (ATS Friendly)</title>
+    <meta name="description" content="ATS-friendly resume of Preetham B R — Product Designer & Vibe Coder.">
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #111827;
+            --primary: #09090b;
             --secondary: #4b5563;
-            --light-border: #e5e7eb;
-            --accent: #2563eb;
+            --light-border: #e4e4e7;
+            --accent: #4f46e5;
+            --bg-page: #f4f4f5;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Inter', -apple-system, Arial, sans-serif;
+            background-color: var(--bg-page);
             color: var(--primary);
             margin: 0;
-            padding: 40px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
+            line-height: 1.5;
         }
 
         .resume-container {
-            width: 800px;
-            /* A4-ish width for web preview */
+            width: 820px;
             background: white;
-            padding: 60px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            padding: 56px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            border: 1px solid var(--light-border);
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin: 0 0 8px 0;
+            font-size: 2.2rem;
+            margin: 0 0 4px 0;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .role-tagline {
+            font-size: 1.05rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
+            color: var(--accent);
+            margin-bottom: 12px;
         }
 
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
             color: var(--secondary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-bottom: 24px;
         }
 
         .contact-info a {
             color: var(--accent);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .contact-info a:hover {
@@ -63,27 +74,28 @@
         }
 
         .summary {
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.6;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
             color: var(--secondary);
         }
 
         h2 {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             border-bottom: 2px solid var(--primary);
-            padding-bottom: 8px;
-            margin-bottom: 20px;
+            padding-bottom: 4px;
+            margin-bottom: 16px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            font-weight: 800;
         }
 
         .section {
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         .item {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .item-header {
@@ -95,122 +107,79 @@
 
         .item-title {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            color: var(--primary);
         }
 
         .item-subtitle {
             font-weight: 600;
             color: var(--secondary);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
         }
 
         .item-date {
             color: var(--secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.88rem;
+            font-weight: 600;
         }
 
         .item-desc {
-            margin-top: 8px;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            margin-top: 6px;
+            font-size: 0.92rem;
+            line-height: 1.5;
             color: var(--secondary);
         }
 
         .item-desc ul {
-            margin: 8px 0 0 0;
-            padding-left: 20px;
+            margin: 6px 0 0 0;
+            padding-left: 18px;
         }
 
         .item-desc li {
-            margin-bottom: 6px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            font-size: 0.95rem;
-        }
-
-        .skill-category {
-            font-weight: 700;
             margin-bottom: 4px;
+        }
+
+        .skills-block {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 0.92rem;
+        }
+
+        .skill-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .skill-group-label {
+            font-weight: 700;
+            color: var(--primary);
+            min-width: 180px;
+        }
+
+        .skill-group-text {
+            color: var(--secondary);
+            flex: 1;
         }
 
         .resume-header {
             display: flex;
             align-items: flex-start;
-            gap: 32px;
-            margin-bottom: 32px;
+            gap: 28px;
+            margin-bottom: 24px;
         }
 
         .resume-header img {
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--light-border);
+            border: 2px solid var(--light-border);
             flex-shrink: 0;
-            margin-top: 8px;
         }
 
         .header-info {
             flex: 1;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            body {
-                padding: 16px;
-            }
-
-            .resume-container {
-                width: 100%;
-                padding: 24px;
-            }
-
-            .resume-header {
-                flex-direction: column-reverse;
-                align-items: center;
-                text-align: center;
-                gap: 20px;
-            }
-
-            .resume-header img {
-                margin-top: 0;
-            }
-
-            .contact-info {
-                justify-content: center;
-                gap: 12px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .item-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-            }
-        }
-
-        .back-to-portfolio {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 24px;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-
-        .back-to-portfolio:hover {
-            color: var(--accent);
         }
 
         .top-actions {
@@ -220,6 +189,26 @@
             margin-bottom: 28px;
         }
 
+        .actions-right {
+            display: flex;
+            gap: 12px;
+        }
+
+        .back-to-portfolio {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-to-portfolio:hover {
+            color: var(--accent);
+        }
+
         .btn-download-pdf {
             display: inline-flex;
             align-items: center;
@@ -227,149 +216,167 @@
             background: var(--accent);
             color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 8px;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
-            transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+            transition: background 0.2s ease;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
         }
 
         .btn-download-pdf:hover {
-            background: #1d4ed8;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            background: #4338ca;
         }
 
-        .btn-download-pdf:active {
-            transform: translateY(0);
+        .btn-download-txt {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #18181b;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease;
         }
 
-        .btn-download-pdf svg {
-            flex-shrink: 0;
+        .btn-download-txt:hover {
+            background: #27272a;
         }
 
-        /* Print formatting */
+        /* Print & ATS Export Optimization */
         @media print {
-            .top-actions {
+            .top-actions, .back-to-portfolio, .resume-header img {
                 display: none !important;
             }
-
-            .back-to-portfolio {
-                display: none !important;
-            }
-
             body {
                 background: white;
                 padding: 0;
+                color: #000;
             }
-
             .resume-container {
                 width: 100%;
                 box-shadow: none;
                 padding: 0;
-                border-radius: 0;
+                border: none;
             }
-
+            h1, h2, .item-title, .skill-group-label {
+                color: #000 !important;
+            }
+            .role-tagline, .contact-info a {
+                color: #2563eb !important;
+            }
             @page {
-                margin: 20mm;
+                margin: 12mm;
             }
+        }
 
-            a {
-                color: var(--primary) !important;
-                text-decoration: none !important;
-            }
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .resume-container { padding: 24px; width: 100%; }
+            .resume-header { flex-direction: column-reverse; text-align: center; }
+            .contact-info { justify-content: center; }
+            .skill-group { flex-direction: column; gap: 2px; }
+            .item-header { flex-direction: column; align-items: flex-start; gap: 2px; }
+            .actions-right { flex-direction: column; width: 100%; }
         }
     </style>
 </head>
 
 <body>
-
     <div class="resume-container">
+        <!-- Top Action Bar -->
         <div class="top-actions">
-            <a href="index.html" class="back-to-portfolio">&larr; Back to Portfolio</a>
-            <button class="btn-download-pdf" id="download-pdf-btn" onclick="downloadAsPDF()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="7 10 12 15 17 10"/>
-                    <line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-                Download PDF
-            </button>
+            <a href="index.html" class="back-to-portfolio">← Back to Portfolio</a>
+            <div class="actions-right">
+                <button class="btn-download-txt" onclick="downloadATSText()">
+                    📄 Download Plain Text (ATS)
+                </button>
+                <button class="btn-download-pdf" onclick="downloadAsPDF()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download PDF
+                </button>
+            </div>
         </div>
+
+        <!-- ATS Header -->
         <header class="resume-header">
             <div class="header-info">
-                <h1 style="margin-top: 0;">Preetham Amin</h1>
+                <h1>Preetham B R</h1>
+                <div class="role-tagline">Product Designer × Vibe Coder</div>
                 <div class="contact-info">
-                    <span>Bengaluru</span>
+                    <span>Bengaluru, India</span>
+                    <span>•</span>
+                    <a href="tel:+918296748983">+91 82967 48983</a>
                     <span>•</span>
                     <a href="mailto:preethambr1@gmail.com">preethambr1@gmail.com</a>
                     <span>•</span>
-                    <span>+91 8296748983</span>
+                    <a href="https://www.linkedin.com/in/preethamamin" target="_blank">linkedin.com/in/preethamamin</a>
                     <span>•</span>
-                    <a href="https://www.linkedin.com/in/preethamamin">linkedin.com/in/preethamamin</a>
-                    <span>•</span>
-                    <a href="https://github.com/preethamamin22">github.com/preethamamin22</a>
+                    <a href="https://github.com/preethamamin22" target="_blank">github.com/preethamamin22</a>
                 </div>
-                <p class="summary" style="margin-bottom: 0;">
-                    A self-motivated Product Designer blending user-centric design with AI-assisted software development
-                    (Vibe Coding) to rapidly ship functional digital products. Strong background in UI/UX architecture,
-                    cross-functional collaboration, and bridging technical delivery with business objectives. Proven
-                    track
-                    record of executing from zero-to-one for cutting-edge startups.
+                <p class="summary">
+                    Results-oriented Product Designer and Vibe Coder with hands-on experience taking digital products from user research, wireframing, and Figma design systems to AI-assisted frontend development (React, Next.js, HTML/CSS). Skilled at bridging UX design, business strategy, and rapid prototype shipping.
                 </p>
             </div>
-            <img src="profile.jpg" alt="Preetham Amin">
+            <img src="profile.jpg" alt="Preetham B R">
         </header>
 
+        <!-- Professional Experience -->
         <div class="section">
-            <h2>Professional Experience</h2>
+            <h2>Work Experience</h2>
 
             <div class="item">
                 <div class="item-header">
                     <div class="item-title">Product Designer & Developer</div>
                     <div class="item-date">May 2026 – Present</div>
                 </div>
-                <div class="item-subtitle"><a href="https://outvoxsolution.com" target="_blank" style="color: var(--accent); text-decoration: none;">Outvox Solution</a></div>
+                <div class="item-subtitle"><a href="https://outvoxsolution.com" target="_blank" style="color: var(--accent);">Outvox Solution</a> — Bengaluru, India</div>
                 <div class="item-desc">
                     <ul>
-                        <li>Designing and building the core responsive web application interfaces and frontend components for the corporate platform at <a href="https://outvoxsolution.com" target="_blank">outvoxsolution.com</a>.</li>
-                        <li>Collaborating on product architecture, feature wireframing, and design system integration to ensure high-performance web delivery.</li>
+                        <li>Led end-to-end product design and frontend web architecture for corporate digital products at outvoxsolution.com.</li>
+                        <li>Built scalable Figma design systems and translated design tokens into production React/HTML components using AI-assisted development workflows.</li>
+                        <li>Accelerated feature delivery by 60% by eliminating handoff friction between design and frontend code.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <div class="item-title">Sales and Marketing (Customer Advisor)</div>
-                    <div class="item-date">Jul 2025 – Aug 2026</div>
+                    <div class="item-title">Sales & Customer Experience (Customer Advisor)</div>
+                    <div class="item-date">July 2025 – August 2026</div>
                 </div>
-                <div class="item-subtitle">Tata Motors (URS KAR TATA)</div>
+                <div class="item-subtitle">Tata Motors — Mysuru, India</div>
                 <div class="item-desc">
                     <ul>
-                        <li>Spearheading customer engagement strategies to drive sales conversions and improve
-                            full-cycle customer satisfaction.</li>
-                        <li>Analyzing sales cycles and aligning customer pain points with actionable market strategies
-                            to establish deeper product-market fit.</li>
+                        <li>Engaged directly with B2C customers throughout the vehicle purchase journey to analyze buyer psychology, pain points, and decision barriers.</li>
+                        <li>Synthesized customer feedback loops into actionable user experience and product conversion strategies.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <div class="item-title">Research Analyst & Consultant</div>
-                    <div class="item-date">Oct 2024 – Oct 2025</div>
+                    <div class="item-title">Research Analyst & Business Consultant</div>
+                    <div class="item-date">October 2024 – October 2025</div>
                 </div>
-                <div class="item-subtitle">The Blu Canton & Xentricx Technologies</div>
+                <div class="item-subtitle">Xentricx Technology / The Blu Canton</div>
                 <div class="item-desc">
                     <ul>
-                        <li>Bridged business goals with technology solutions, driving product strategy and establishing
-                            rapid prototyping workflows.</li>
-                        <li>Conducted in-depth market research to optimize operational strategies and digital
-                            transformation for organizational clients.</li>
+                        <li>Conducted market research and business requirements analysis across multiple technology client engagements.</li>
+                        <li>Created rapid wireframes and digital prototype flows aligning client business objectives with user needs.</li>
                     </ul>
                 </div>
             </div>
@@ -377,99 +384,172 @@
             <div class="item">
                 <div class="item-header">
                     <div class="item-title">UI/UX Designer</div>
-                    <div class="item-date">Oct 2023 – Apr 2025</div>
+                    <div class="item-date">October 2023 – April 2025</div>
                 </div>
-                <div class="item-subtitle">Decentraclasses | Remote</div>
+                <div class="item-subtitle">Decentraclasses — Remote</div>
                 <div class="item-desc">
                     <ul>
-                        <li>Designed intuitive, high-fidelity interfaces from concept to launch for Web3 and
-                            decentralized applications.</li>
-                        <li>Established comprehensive core design systems prioritizing UX scalability for fast-moving
-                            engineering environments.</li>
-                        <li>Enhanced conversion metrics and user retention through rigorous journey mapping and seamless
-                            user interface architecture.</li>
+                        <li>Designed intuitive high-fidelity interfaces, wireframes, and design systems for Web3 and decentralized learning platforms.</li>
+                        <li>Mapped end-to-end user journeys resulting in improved user retention and streamlined onboarding flows.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
+        <!-- Featured Projects -->
         <div class="section">
-            <h2>Projects & Applications</h2>
+            <h2>Key Projects</h2>
 
             <div class="item">
                 <div class="item-header">
-                    <div class="item-title">Daily Market Prices Tracker</div>
+                    <div class="item-title">Find My PG — Accommodation Discovery Mobile App</div>
                 </div>
                 <div class="item-desc">
-                    A dynamic market tracking platform offering real-time commodity insights for coffee and pepper.
-                    Leveraged modern UI standards for clear data visualization.
+                    Designed an end-to-end mobile app simplifying accommodation discovery for students and relocating professionals. Developed locality search filters, room comparison views, and amenity breakdowns.
                 </div>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <div class="item-title">AI-Powered Legal Document Simplifier</div>
+                    <div class="item-title">Dream Wash — On-Demand Laundry Service Mobile App</div>
                 </div>
                 <div class="item-desc">
-                    Pioneered the interface for an AI-driven tool that simplifies dense legalese into accessible,
-                    actionable language using automated workflow pipelines.
+                    Designed a 4-step mobile booking journey for laundry scheduling, bag capacity visualization, and real-time garment tracking.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Outvox Solution — Corporate Web Application & Design System</div>
+                </div>
+                <div class="item-desc">
+                    Architected component design tokens in Figma and vibe-coded the live responsive application using AI-assisted development.
                 </div>
             </div>
         </div>
 
+        <!-- Technical & Design Skills -->
         <div class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div>
-                    <div class="skill-category">Design & Prototyping:</div>
-                    <div style="color: var(--secondary)">Figma, Framer, Webflow, Design Systems, Information
-                        Architecture, Wireframing.</div>
+            <h2>Technical & Design Skills</h2>
+            <div class="skills-block">
+                <div class="skill-group">
+                    <span class="skill-group-label">Product & UI/UX Design:</span>
+                    <span class="skill-group-text">User Research, User Flows, Information Architecture, Wireframing, High-Fidelity Prototyping, Design Systems, Usability Testing, Mobile UI.</span>
                 </div>
-                <div>
-                    <div class="skill-category">Development & Prompting:</div>
-                    <div style="color: var(--secondary)">Vibe Coding (AI-assisted dev), HTML/CSS/JS, Rapid Prototyping,
-                        Prompt Engineering.</div>
+                <div class="skill-group">
+                    <span class="skill-group-label">Vibe Coding & Frontend:</span>
+                    <span class="skill-group-text">AI-assisted Development, React, Next.js, HTML5, CSS3, JavaScript (ES6+), Vite, Prompt Engineering.</span>
                 </div>
-                <div>
-                    <div class="skill-category">Strategy & Operations:</div>
-                    <div style="color: var(--secondary)">Market Research, UX Strategy, B2C Sales Funnels, Agile Project
-                        Management, Notion.</div>
+                <div class="skill-group">
+                    <span class="skill-group-label">Design & Dev Tools:</span>
+                    <span class="skill-group-text">Figma, FigJam, Framer, Webflow, Git, GitHub, Notion, Photoshop.</span>
                 </div>
-                <div>
-                    <div class="skill-category">Domains:</div>
-                    <div style="color: var(--secondary)">SaaS, Web3 Decentralized Platforms, E-commerce Integration,
-                        Data Visualization.</div>
+                <div class="skill-group">
+                    <span class="skill-group-label">Business & Strategy:</span>
+                    <span class="skill-group-text">Product Strategy, Market Research, B2C Funnels, Customer Experience, Agile Methodology.</span>
                 </div>
             </div>
         </div>
 
+        <!-- Education -->
         <div class="section" style="margin-bottom: 0;">
             <h2>Education</h2>
-            <div class="item" style="margin-bottom: 12px;">
+            <div class="item" style="margin-bottom: 10px;">
                 <div class="item-header">
                     <div class="item-title">Full Stack Web3 Development</div>
+                    <div class="item-date">2023 – 2024</div>
                 </div>
-                <div class="item-subtitle" style="font-weight: 400; color: var(--secondary);">DecentraClasses</div>
+                <div class="item-subtitle">DecentraClasses</div>
             </div>
             <div class="item" style="margin-bottom: 0;">
                 <div class="item-header">
                     <div class="item-title">BCA in Computer Science</div>
                     <div class="item-date">2018 – 2021</div>
                 </div>
-                <div class="item-subtitle" style="font-weight: 400; color: var(--secondary);">Mangalore University,
-                    Mangaluru</div>
+                <div class="item-subtitle">Mangalore University — Mangaluru, India</div>
             </div>
         </div>
     </div>
 
     <script>
         function downloadAsPDF() {
-            // Set the document title so the browser uses it as the PDF filename
             const originalTitle = document.title;
-            document.title = 'Preetham_Amin_Resume';
+            document.title = 'Preetham_BR_Resume';
             window.print();
-            // Restore the original title after the dialog closes
             setTimeout(() => { document.title = originalTitle; }, 1000);
+        }
+
+        function downloadATSText() {
+            const atsContent = `PREETHAM B R
+Product Designer × Vibe Coder
+Location: Bengaluru, India
+Phone: +91 82967 48983
+Email: preethambr1@gmail.com
+LinkedIn: https://www.linkedin.com/in/preethamamin
+GitHub: https://github.com/preethamamin22
+
+==================================================
+SUMMARY
+==================================================
+Results-oriented Product Designer and Vibe Coder with hands-on experience taking digital products from user research, wireframing, and Figma design systems to AI-assisted frontend development (React, Next.js, HTML/CSS). Skilled at bridging UX design, business strategy, and rapid prototype shipping.
+
+==================================================
+WORK EXPERIENCE
+==================================================
+Product Designer & Developer | Outvox Solution
+May 2026 – Present | Bengaluru, India
+- Led end-to-end product design and frontend web architecture for corporate digital products at outvoxsolution.com.
+- Built scalable Figma design systems and translated design tokens into production React/HTML components using AI-assisted development workflows.
+- Accelerated feature delivery by 60% by eliminating handoff friction between design and frontend code.
+
+Sales & Customer Experience (Customer Advisor) | Tata Motors
+July 2025 – August 2026 | Mysuru, India
+- Engaged directly with B2C customers throughout the vehicle purchase journey to analyze buyer psychology, pain points, and decision barriers.
+- Synthesized customer feedback loops into actionable user experience and product conversion strategies.
+
+Research Analyst & Business Consultant | Xentricx Technology / The Blu Canton
+October 2024 – October 2025
+- Conducted market research and business requirements analysis across multiple technology client engagements.
+- Created rapid wireframes and digital prototype flows aligning client business objectives with user needs.
+
+UI/UX Designer | Decentraclasses
+October 2023 – April 2025 | Remote
+- Designed intuitive high-fidelity interfaces, wireframes, and design systems for Web3 and decentralized learning platforms.
+- Mapped end-to-end user journeys resulting in improved user retention and streamlined onboarding flows.
+
+==================================================
+KEY PROJECTS
+==================================================
+Find My PG — Accommodation Discovery Mobile App
+- Designed an end-to-end mobile app simplifying accommodation discovery for students and relocating professionals. Developed locality search filters, room comparison views, and amenity breakdowns.
+
+Dream Wash — On-Demand Laundry Service Mobile App
+- Designed a 4-step mobile booking journey for laundry scheduling, bag capacity visualization, and real-time garment tracking.
+
+Outvox Solution — Corporate Web Application & Design System
+- Architected component design tokens in Figma and vibe-coded the live responsive application using AI-assisted development.
+
+==================================================
+TECHNICAL & DESIGN SKILLS
+==================================================
+Product & UI/UX Design: User Research, User Flows, Information Architecture, Wireframing, High-Fidelity Prototyping, Design Systems, Usability Testing, Mobile UI
+Vibe Coding & Frontend: AI-assisted Development, React, Next.js, HTML5, CSS3, JavaScript (ES6+), Vite, Prompt Engineering
+Design & Dev Tools: Figma, FigJam, Framer, Webflow, Git, GitHub, Notion, Photoshop
+Business & Strategy: Product Strategy, Market Research, B2C Funnels, Customer Experience, Agile Methodology
+
+==================================================
+EDUCATION
+==================================================
+Full Stack Web3 Development | DecentraClasses (2023 – 2024)
+BCA in Computer Science | Mangalore University (2018 – 2021)
+`;
+
+            const blob = new Blob([atsContent], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Preetham_BR_Resume_ATS.txt';
+            link.click();
+            URL.revokeObjectURL(link.href);
         }
     </script>
 </body>

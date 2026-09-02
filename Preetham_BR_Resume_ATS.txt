@@ -1,0 +1,62 @@
+PREETHAM B R
+Product Designer × Vibe Coder
+Location: Bengaluru, India
+Phone: +91 82967 48983
+Email: preethambr1@gmail.com
+LinkedIn: https://www.linkedin.com/in/preethamamin
+GitHub: https://github.com/preethamamin22
+
+==================================================
+SUMMARY
+==================================================
+Results-oriented Product Designer and Vibe Coder with hands-on experience taking digital products from user research, wireframing, and Figma design systems to AI-assisted frontend development (React, Next.js, HTML/CSS). Skilled at bridging UX design, business strategy, and rapid prototype shipping.
+
+==================================================
+WORK EXPERIENCE
+==================================================
+Product Designer & Developer | Outvox Solution
+May 2026 – Present | Bengaluru, India
+- Led end-to-end product design and frontend web architecture for corporate digital products at outvoxsolution.com.
+- Built scalable Figma design systems and translated design tokens into production React/HTML components using AI-assisted development workflows.
+- Accelerated feature delivery by 60% by eliminating handoff friction between design and frontend code.
+
+Sales & Customer Experience (Customer Advisor) | Tata Motors
+July 2025 – August 2026 | Mysuru, India
+- Engaged directly with B2C customers throughout the vehicle purchase journey to analyze buyer psychology, pain points, and decision barriers.
+- Synthesized customer feedback loops into actionable user experience and product conversion strategies.
+
+Research Analyst & Business Consultant | Xentricx Technology / The Blu Canton
+October 2024 – October 2025
+- Conducted market research and business requirements analysis across multiple technology client engagements.
+- Created rapid wireframes and digital prototype flows aligning client business objectives with user needs.
+
+UI/UX Designer | Decentraclasses
+October 2023 – April 2025 | Remote
+- Designed intuitive high-fidelity interfaces, wireframes, and design systems for Web3 and decentralized learning platforms.
+- Mapped end-to-end user journeys resulting in improved user retention and streamlined onboarding flows.
+
+==================================================
+KEY PROJECTS
+==================================================
+Find My PG — Accommodation Discovery Mobile App
+- Designed an end-to-end mobile app simplifying accommodation discovery for students and relocating professionals. Developed locality search filters, room comparison views, and amenity breakdowns.
+
+Dream Wash — On-Demand Laundry Service Mobile App
+- Designed a 4-step mobile booking journey for laundry scheduling, bag capacity visualization, and real-time garment tracking.
+
+Outvox Solution — Corporate Web Application & Design System
+- Architected component design tokens in Figma and vibe-coded the live responsive application using AI-assisted development.
+
+==================================================
+TECHNICAL & DESIGN SKILLS
+==================================================
+Product & UI/UX Design: User Research, User Flows, Information Architecture, Wireframing, High-Fidelity Prototyping, Design Systems, Usability Testing, Mobile UI
+Vibe Coding & Frontend: AI-assisted Development, React, Next.js, HTML5, CSS3, JavaScript (ES6+), Vite, Prompt Engineering
+Design & Dev Tools: Figma, FigJam, Framer, Webflow, Git, GitHub, Notion, Photoshop
+Business & Strategy: Product Strategy, Market Research, B2C Funnels, Customer Experience, Agile Methodology
+
+==================================================
+EDUCATION
+==================================================
+Full Stack Web3 Development | DecentraClasses (2023 – 2024)
+BCA in Computer Science | Mangalore University (2018 – 2021)

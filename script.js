@@ -1,18 +1,91 @@
-// =============================================
-// INIT
-// =============================================
-const yearEl = document.getElementById('year');
-if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+// ==========================================================================
+// PREETHAM B R — PRODUCT DESIGNER × VIBE CODER
+// Master JavaScript (Theme Toggle, Custom Cursor, Scroll Spy, Projects Grid)
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// 1. Theme Toggle & LocalStorage Persistence
+// --------------------------------------------------------------------------
+const themeToggleBtn = document.getElementById('theme-toggle');
+const htmlEl = document.documentElement;
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('preetham_theme');
+    if (savedTheme) {
+        htmlEl.className = savedTheme;
+    } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        htmlEl.className = prefersDark ? 'dark' : 'light';
+    }
 }
 
-// =============================================
-// NAVBAR — scroll class & active section spy
-// =============================================
+initTheme();
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        const newTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
+        htmlEl.className = newTheme;
+        localStorage.setItem('preetham_theme', newTheme);
+    });
+}
+
+// --------------------------------------------------------------------------
+// 2. Desktop Custom Cursor
+// --------------------------------------------------------------------------
+const cursorRing = document.getElementById('custom-cursor');
+const cursorDot = document.getElementById('cursor-dot');
+
+let mouseX = 0, mouseY = 0;
+let ringX = 0, ringY = 0;
+
+if (cursorRing && cursorDot && window.innerWidth > 768) {
+    document.body.classList.add('cursor-active');
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+    });
+
+    function renderCursor() {
+        ringX += (mouseX - ringX) * 0.18;
+        ringY += (mouseY - ringY) * 0.18;
+
+        cursorRing.style.left = `${ringX}px`;
+        cursorRing.style.top = `${ringY}px`;
+
+        requestAnimationFrame(renderCursor);
+    }
+    requestAnimationFrame(renderCursor);
+
+    // Hover effect for clickable project cards
+    document.querySelectorAll('.clickable-card').forEach(card => {
+        card.addEventListener('mouseenter', () => cursorRing.classList.add('hovering-card'));
+        card.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering-card'));
+    });
+}
+
+// --------------------------------------------------------------------------
+// 3. Clickable Featured Cards Navigation
+// --------------------------------------------------------------------------
+document.querySelectorAll('.clickable-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        const href = card.getAttribute('data-href');
+        if (href && !e.target.closest('a')) {
+            window.location.href = href;
+        }
+    });
+});
+
+// --------------------------------------------------------------------------
+// 4. Sticky Navbar Scroll & Active Section Spy
+// --------------------------------------------------------------------------
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
     if (navbar) {
-        if (window.scrollY > 40) {
+        if (window.scrollY > 30) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
@@ -20,102 +93,46 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
-// Section Scroll-Spy for Nav Links
 const sections = document.querySelectorAll('section[id]');
 const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 
 window.addEventListener('scroll', () => {
-    let currentSectionId = '';
-    const scrollPosition = window.scrollY + 120;
+    let currentId = '';
+    const scrollPos = window.scrollY + 140;
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            currentSectionId = section.getAttribute('id');
+    sections.forEach(sec => {
+        const top = sec.offsetTop;
+        const height = sec.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+            currentId = sec.getAttribute('id');
         }
     });
 
-    navAnchors.forEach(anchor => {
-        anchor.classList.remove('active');
-        if (currentSectionId && anchor.getAttribute('href') === `#${currentSectionId}`) {
-            anchor.classList.add('active');
+    navAnchors.forEach(a => {
+        a.classList.remove('active');
+        if (currentId && a.getAttribute('href') === `#${currentId}`) {
+            a.classList.add('active');
         }
     });
 }, { passive: true });
 
-// =============================================
-// MOBILE MENU
-// =============================================
+// Mobile Menu Drawer
 const mobileBtn = document.getElementById('mobile-menu-btn');
 const navLinks = document.getElementById('nav-links');
 
 if (mobileBtn && navLinks) {
     mobileBtn.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('active');
-        mobileBtn.setAttribute('aria-expanded', isOpen);
+        navLinks.classList.toggle('active');
     });
 
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            mobileBtn.setAttribute('aria-expanded', 'false');
-        });
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => navLinks.classList.remove('active'));
     });
 }
 
-// =============================================
-// TYPEWRITER EFFECT
-// =============================================
-const roles = [
-    'for Startups.',
-    'as a Product Designer.',
-    'as a UI/UX Expert.',
-    'as a Vibe Coder.',
-    'for the Future.',
-];
-
-const typewriterEl = document.getElementById('typewriter-text');
-let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typewriterTimeout;
-
-function type() {
-    if (!typewriterEl) return;
-    const currentRole = roles[roleIndex];
-
-    if (isDeleting) {
-        typewriterEl.textContent = currentRole.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typewriterEl.textContent = currentRole.substring(0, charIndex + 1);
-        charIndex++;
-    }
-
-    let speed = isDeleting ? 55 : 90;
-
-    if (!isDeleting && charIndex === currentRole.length) {
-        speed = 2200; // pause at end
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        speed = 400; // pause before typing next
-    }
-
-    typewriterTimeout = setTimeout(type, speed);
-}
-
-if (typewriterEl) {
-    setTimeout(type, 800);
-}
-
-// =============================================
-// SCROLL REVEAL ANIMATIONS
-// =============================================
-const revealElements = document.querySelectorAll('.reveal');
-
+// --------------------------------------------------------------------------
+// 5. Scroll Reveal Intersection Observer
+// --------------------------------------------------------------------------
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -124,323 +141,164 @@ const revealObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    threshold: 0.12,
+    threshold: 0.1,
     rootMargin: '0px 0px -40px 0px'
 });
 
-revealElements.forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// =============================================
-// GITHUB PROJECTS & FALLBACK DATA
-// =============================================
+// --------------------------------------------------------------------------
+// 6. Other Projects Grid & GitHub Sync
+// --------------------------------------------------------------------------
 const GITHUB_USERNAME = 'preethamamin22';
-const githubContainer = document.getElementById('github-projects');
-const searchInput = document.getElementById('project-search');
-const filterTagsContainer = document.getElementById('filter-tags');
+const otherProjectsGrid = document.getElementById('other-projects-grid');
+const filterTabsContainer = document.getElementById('filter-tabs');
 
-let allRepos = [];
-let activeFilter = 'all';
-let searchQuery = '';
-
-const EXCLUDED_REPOS = new Set([
-    'wedding-invitation',
-    'preethamamin',
-    'mohan',
-    'food-recommends-based-on-your-mood',
-    'preethamamin22',
-    'hii',
-    'hello',
-    'preetham-portfolio',
-    'preetham-portfolieo',
-    'webdesign',
-    'portfolio-2022-next.js',
-    'portfolio-2022-nextjs',
-    'portfolio--2022-next.js',
-    'preetham.com',
-    'hiiiii',
-    'portfolio-2022',
-    'preetham',
-    'website'
-]);
-
-const CUSTOM_DESCRIPTIONS = {
-    '-code-generator': 'An automated Python script designed to generate clean, boilerplate code templates for standard design patterns and frontend layout blocks.',
-    'alankaram': 'A premium responsive web landing page styled with clean aesthetics and smooth typography, showcasing architectural or interior design concepts.',
-    'ananyahomestay': 'A fully responsive homestay booking platform featuring dynamic date picking, room selections, and visual catalogs.',
-    'blockdevs': 'A landing platform for blockchain developers, featuring modern neon gradients, clean layout components, and resource links.',
-    'bluecohortmanagement': 'A student cohort dashboard interface providing clean progress bars, module tracking, and schedule visualizers for online courses.',
-    'daily-market-prices-of-coffee-and-pepper': 'A live commodity pricing tracker providing real-time data insights and visual graphs for coffee and pepper market changes.',
-    'legal-document-simplifier': 'An AI-powered legal text simplifier translating complex agreements into readable bullet points using automated language pipelines.',
-    'outvox-solution': 'A corporate service landing page optimized for fast loading speeds, SEO headers, and user registration flows.',
-    'outvoxsolution-hr': 'An HR administration dashboard facilitating employee attendance tracking, payroll overview, and team organization hierarchies.',
-    'shreevaraha': 'A regional e-commerce storefront for agricultural products, emphasizing local sourcing, pricing tables, and WhatsApp order links.',
-    'sree-shoba-concretes': 'A professional business page for a building materials manufacturer, showcasing product categories, catalogs, and dynamic maps.',
-    'zennuc-deco': 'A minimalist design system showcase for interior decorating, featuring smooth CSS animations and product catalogs.',
-    'zepto-hiring': 'An interactive high-performance career application interface mockup built with pixel-perfect responsive layouts.'
-};
-
-// Curated Fallback Projects list to guarantee project rendering even when GitHub API rate-limits
-const FALLBACK_PROJECTS = [
+const REAL_PROJECTS = [
     {
-        name: 'Daily-Market-Prices-Of-Coffee-And-Pepper',
-        language: 'TypeScript',
-        homepage: 'https://daily-market-prices-of-coffee-and-p.vercel.app',
-        html_url: 'https://github.com/preethamamin22/Daily-Market-Prices-Of-Coffee-And-Pepper',
-        description: CUSTOM_DESCRIPTIONS['daily-market-prices-of-coffee-and-pepper']
+        name: 'Daily Market Prices Of Coffee And Pepper',
+        category: 'Vibe Coding',
+        lang: 'TypeScript',
+        desc: 'A live commodity pricing tracker providing real-time data insights and visual graphs for coffee and pepper market changes.',
+        demo: 'https://daily-market-prices-of-coffee-and-p.vercel.app',
+        code: 'https://github.com/preethamamin22/Daily-Market-Prices-Of-Coffee-And-Pepper'
     },
     {
-        name: 'LEGAL-DOCUMENT-SIMPLIFIER',
-        language: 'JavaScript',
-        homepage: 'https://legal-document-simplifier-gilt.vercel.app',
-        html_url: 'https://github.com/preethamamin22/LEGAL-DOCUMENT-SIMPLIFIER',
-        description: CUSTOM_DESCRIPTIONS['legal-document-simplifier']
+        name: 'Legal Document Simplifier',
+        category: 'UI/UX',
+        lang: 'JavaScript',
+        desc: 'An AI-powered legal text simplifier translating complex agreements into readable bullet points using automated language pipelines.',
+        demo: 'https://legal-document-simplifier-gilt.vercel.app',
+        code: 'https://github.com/preethamamin22/LEGAL-DOCUMENT-SIMPLIFIER'
     },
     {
-        name: 'Outvox-solution',
-        language: 'JavaScript',
-        homepage: 'https://outvox-solution.vercel.app',
-        html_url: 'https://github.com/preethamamin22/Outvox-solution',
-        description: CUSTOM_DESCRIPTIONS['outvox-solution']
+        name: 'Ananya Homestay',
+        category: 'Product Design',
+        lang: 'TypeScript',
+        desc: 'A fully responsive homestay booking platform featuring dynamic date picking, room selections, and visual catalogs.',
+        demo: 'https://ananyahomestay.vercel.app',
+        code: 'https://github.com/preethamamin22/Ananyahomestay'
     },
     {
-        name: 'outvoxsolution-hr',
-        language: 'JavaScript',
-        homepage: null,
-        html_url: 'https://github.com/preethamamin22/outvoxsolution-hr',
-        description: CUSTOM_DESCRIPTIONS['outvoxsolution-hr']
+        name: 'BlockDevs Platform',
+        category: 'UI/UX',
+        lang: 'HTML',
+        desc: 'A landing platform for blockchain developers, featuring modern neon accents, clean layout components, and resource links.',
+        demo: 'https://blockdevs-nine.vercel.app',
+        code: 'https://github.com/preethamamin22/blockdevs'
     },
     {
-        name: 'Ananyahomestay',
-        language: 'TypeScript',
-        homepage: 'https://ananyahomestay.vercel.app',
-        html_url: 'https://github.com/preethamamin22/Ananyahomestay',
-        description: CUSTOM_DESCRIPTIONS['ananyahomestay']
-    },
-    {
-        name: 'blockdevs',
-        language: 'HTML',
-        homepage: 'https://blockdevs-nine.vercel.app',
-        html_url: 'https://github.com/preethamamin22/blockdevs',
-        description: CUSTOM_DESCRIPTIONS['blockdevs']
-    },
-    {
-        name: 'Bluecohortmanagement',
-        language: 'HTML',
-        homepage: 'https://bluecohortmanagement.vercel.app',
-        html_url: 'https://github.com/preethamamin22/Bluecohortmanagement',
-        description: CUSTOM_DESCRIPTIONS['bluecohortmanagement']
+        name: 'Blue Cohort Management',
+        category: 'Product Design',
+        lang: 'HTML',
+        desc: 'A student cohort dashboard interface providing clean progress bars, module tracking, and schedule visualizers for online courses.',
+        demo: 'https://bluecohortmanagement.vercel.app',
+        code: 'https://github.com/preethamamin22/Bluecohortmanagement'
     },
     {
         name: 'Alankaram',
-        language: 'HTML',
-        homepage: 'https://alankaram.vercel.app',
-        html_url: 'https://github.com/preethamamin22/Alankaram',
-        description: CUSTOM_DESCRIPTIONS['alankaram']
+        category: 'Web Design',
+        lang: 'HTML',
+        desc: 'A premium responsive web landing page styled with clean aesthetics and smooth typography showcasing interior design concepts.',
+        demo: 'https://alankaram.vercel.app',
+        code: 'https://github.com/preethamamin22/Alankaram'
     },
     {
-        name: 'shreevaraha',
-        language: 'HTML',
-        homepage: 'https://shreevaraha.vercel.app',
-        html_url: 'https://github.com/preethamamin22/shreevaraha',
-        description: CUSTOM_DESCRIPTIONS['shreevaraha']
+        name: 'Shreevaraha Store',
+        category: 'Web Design',
+        lang: 'HTML',
+        desc: 'A regional storefront for agricultural products, emphasizing local sourcing, pricing tables, and WhatsApp order links.',
+        demo: 'https://shreevaraha.vercel.app',
+        code: 'https://github.com/preethamamin22/shreevaraha'
     },
     {
-        name: 'SREE-SHOBA-CONCRETES',
-        language: 'TypeScript',
-        homepage: null,
-        html_url: 'https://github.com/preethamamin22/SREE-SHOBA-CONCRETES',
-        description: CUSTOM_DESCRIPTIONS['sree-shoba-concretes']
+        name: 'Sree Shoba Concretes',
+        category: 'Web Design',
+        lang: 'TypeScript',
+        desc: 'A professional business page for a building materials manufacturer, showcasing product categories, catalogs, and dynamic maps.',
+        demo: null,
+        code: 'https://github.com/preethamamin22/SREE-SHOBA-CONCRETES'
     },
     {
-        name: 'ZenNuc-Deco',
-        language: 'HTML',
-        homepage: 'https://zen-nuc-deco.vercel.app',
-        html_url: 'https://github.com/preethamamin22/ZenNuc-Deco',
-        description: CUSTOM_DESCRIPTIONS['zennuc-deco']
+        name: 'ZenNuc Deco',
+        category: 'Product Design',
+        lang: 'HTML',
+        desc: 'A minimalist design system showcase for interior decorating, featuring smooth CSS animations and product catalogs.',
+        demo: 'https://zen-nuc-deco.vercel.app',
+        code: 'https://github.com/preethamamin22/ZenNuc-Deco'
     },
     {
-        name: 'Zepto-Hiring',
-        language: 'CSS',
-        homepage: 'https://zepto-hiring.vercel.app',
-        html_url: 'https://github.com/preethamamin22/Zepto-Hiring',
-        description: CUSTOM_DESCRIPTIONS['zepto-hiring']
+        name: 'Zepto Hiring Mockup',
+        category: 'Experiments',
+        lang: 'CSS',
+        desc: 'An interactive high-performance career application interface mockup built with pixel-perfect responsive layouts.',
+        demo: 'https://zepto-hiring.vercel.app',
+        code: 'https://github.com/preethamamin22/Zepto-Hiring'
     },
     {
-        name: '-Code-Generator',
-        language: 'Python',
-        homepage: 'https://code-generator-tan.vercel.app',
-        html_url: 'https://github.com/preethamamin22/-Code-Generator',
-        description: CUSTOM_DESCRIPTIONS['-code-generator']
+        name: 'Code Generator Tool',
+        category: 'Experiments',
+        lang: 'Python',
+        desc: 'An automated script designed to generate clean boilerplate code templates for standard design patterns and layout blocks.',
+        demo: 'https://code-generator-tan.vercel.app',
+        code: 'https://github.com/preethamamin22/-Code-Generator'
     }
 ];
 
-const LANG_COLORS = {
-    'JavaScript': '#f7df1e',
-    'TypeScript': '#3178c6',
-    'Python': '#3572A5',
-    'HTML': '#e34c26',
-    'CSS': '#563d7c',
-    'Vue': '#42b883',
-    'React': '#61dafb',
-    'Shell': '#89e051',
-    'Design': '#6366f1',
-};
+let activeFilterCategory = 'all';
 
-function formatUrl(url) {
-    if (!url) return null;
-    url = url.trim();
-    if (url === '' || url === 'null') return null;
-    if (!/^https?:\/\//i.test(url)) {
-        return 'https://' + url;
-    }
-    return url;
-}
+function renderOtherProjects() {
+    if (!otherProjectsGrid) return;
+    otherProjectsGrid.innerHTML = '';
 
-async function fetchGithubRepos() {
-    try {
-        const [response, specificResponse] = await Promise.all([
-            fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`),
-            fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/Daily-Market-Prices-Of-Coffee-And-Pepper`).catch(() => null)
-        ]);
-
-        if (!response.ok) {
-            throw new Error(`GitHub API HTTP ${response.status}`);
-        }
-
-        let repos = await response.json();
-
-        if (specificResponse && specificResponse.ok) {
-            const specificRepo = await specificResponse.json();
-            repos = repos.filter(r => r.id !== specificRepo.id);
-            repos.unshift(specificRepo);
-        }
-
-        allRepos = repos.filter(repo => {
-            if (repo.fork) return false;
-            const repoNameLower = repo.name.toLowerCase();
-            return !EXCLUDED_REPOS.has(repoNameLower);
-        });
-
-        if (allRepos.length === 0) {
-            allRepos = FALLBACK_PROJECTS;
-        }
-
-    } catch (error) {
-        console.warn('Using curated fallback projects due to GitHub API limit/error:', error.message);
-        allRepos = FALLBACK_PROJECTS;
-    }
-
-    generateFilterButtons();
-    filterAndRenderRepos();
-}
-
-function generateFilterButtons() {
-    if (!filterTagsContainer) return;
-
-    const languages = new Set();
-    allRepos.forEach(repo => {
-        const lang = repo.language || 'Design';
-        if (lang) languages.add(lang);
-    });
-
-    filterTagsContainer.innerHTML = `<button class="filter-btn active" data-filter="all">All</button>`;
-
-    languages.forEach(lang => {
-        const btn = document.createElement('button');
-        btn.className = 'filter-btn';
-        btn.setAttribute('data-filter', lang);
-        btn.textContent = lang;
-        filterTagsContainer.appendChild(btn);
-    });
-
-    filterTagsContainer.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            filterTagsContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            e.target.classList.add('active');
-            activeFilter = e.target.getAttribute('data-filter');
-            filterAndRenderRepos();
-        });
-    });
-}
-
-function filterAndRenderRepos() {
-    if (!githubContainer) return;
-
-    githubContainer.innerHTML = '';
-
-    const filtered = allRepos.filter(repo => {
-        const name = repo.name.toLowerCase();
-        const description = (repo.description || '').toLowerCase();
-        const language = (repo.language || 'design').toLowerCase();
-
-        const matchesSearch = name.includes(searchQuery) ||
-            description.includes(searchQuery) ||
-            language.includes(searchQuery);
-
-        const matchesFilter = activeFilter === 'all' || (repo.language || 'Design') === activeFilter;
-
-        return matchesSearch && matchesFilter;
+    const filtered = REAL_PROJECTS.filter(p => {
+        if (activeFilterCategory === 'all') return true;
+        return p.category === activeFilterCategory;
     });
 
     if (filtered.length === 0) {
-        githubContainer.innerHTML = '<p class="text-center" style="grid-column: 1 / -1; padding: 60px 0; color: var(--text-secondary);">No projects match your criteria.</p>';
+        otherProjectsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px 0;">No projects in this category.</p>`;
         return;
     }
 
-    filtered.forEach((repo, index) => {
-        const displayName = repo.name
-            .replace(/^-/, '')
-            .replace(/-/g, ' ')
-            .replace(/\b\w/g, c => c.toUpperCase());
-
-        const descKey = repo.name.toLowerCase();
-        const customDesc = CUSTOM_DESCRIPTIONS[descKey];
-        const descriptionText = customDesc || repo.description || 'A unique digital experience carefully crafted to solve real-world problems.';
-
-        const lang = repo.language || 'Design';
-        const langColor = LANG_COLORS[lang] || '#6366f1';
-
-        const demoUrl = formatUrl(repo.homepage);
-        const repoUrl = formatUrl(repo.html_url) || `https://github.com/${GITHUB_USERNAME}/${repo.name}`;
-
+    filtered.forEach(proj => {
         const card = document.createElement('div');
-        card.className = 'project-card reveal';
-        const delayClass = `reveal-delay-${(index % 4) + 1}`;
-        card.classList.add(delayClass);
+        card.className = 'project-grid-card reveal';
 
-        let linksHtml = '';
-        if (demoUrl && demoUrl !== repoUrl) {
-            linksHtml += `<a href="${demoUrl}" target="_blank" class="project-link demo-link">Live Demo ↗</a>`;
-        }
-        linksHtml += `<a href="${repoUrl}" target="_blank" class="project-link">Code ↗</a>`;
+        const demoBtn = proj.demo ? `<a href="${proj.demo}" target="_blank">Live Demo ↗</a>` : '';
+        const codeBtn = proj.code ? `<a href="${proj.code}" target="_blank">Code ↗</a>` : '';
 
         card.innerHTML = `
             <div>
-                <h3 class="project-title">${displayName}</h3>
-                <p class="project-desc">${descriptionText}</p>
+                <span class="tag-pill" style="margin-bottom: 12px; display: inline-block;">${proj.category}</span>
+                <h3 class="grid-card-title">${proj.name}</h3>
+                <p class="grid-card-desc">${proj.desc}</p>
             </div>
-            <div class="project-meta">
-                <span class="project-lang-badge">
-                    <span class="project-lang-dot" style="background: ${langColor};"></span>
-                    ${lang}
+            <div class="grid-card-footer">
+                <span class="grid-card-lang">
+                    <span class="lang-dot" style="background: var(--accent);"></span>
+                    ${proj.lang}
                 </span>
-                <div class="project-links">
-                    ${linksHtml}
+                <div class="grid-card-links">
+                    ${demoBtn} ${codeBtn}
                 </div>
             </div>
         `;
 
-        githubContainer.appendChild(card);
+        otherProjectsGrid.appendChild(card);
         revealObserver.observe(card);
     });
 }
 
-// Search listener
-if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value.toLowerCase();
-        filterAndRenderRepos();
+if (filterTabsContainer) {
+    filterTabsContainer.querySelectorAll('.filter-tab').forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            filterTabsContainer.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            e.target.classList.add('active');
+            activeFilterCategory = e.target.getAttribute('data-filter');
+            renderOtherProjects();
+        });
     });
 }
 
-fetchGithubRepos();
+renderOtherProjects();
